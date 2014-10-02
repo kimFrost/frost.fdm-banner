@@ -19,34 +19,38 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep']
-      },
-      js: {
-        files: ['scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
-        options: {}
-      },
-      images: {
-        files: ['images/{,*/}*.{png,jpg,jpeg,gif,webp}'],
-        tasks: ['copy:images'],
-      },
-      templates: {
-        files: ['templates/{,*/}*.html'],
-        tasks: ['copy:templates'],
-      },
-      fonts: {
-        files: ['fonts/{,*/}*'],
-        tasks: ['copy:fonts'],
-      },
-      compass: {
-        files: ['styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:debug']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
-      }
+		bower: {
+			files: ['bower.json'],
+			tasks: ['wiredep']
+		},
+		js: {
+			files: ['scripts/{,*/}*.js'],
+			tasks: ['newer:jshint:all'],
+			options: {}
+		},
+		images: {
+			files: ['images/{,*/}*.{png,jpg,jpeg,gif,webp}'],
+			tasks: ['copy:images']
+		},
+		templates: {
+			files: ['templates/{,*/}*.html'],
+			tasks: ['copy:templates']
+		},
+		fonts: {
+			files: ['fonts/{,*/}*'],
+			tasks: ['copy:fonts']
+		},
+		compass: {
+			files: ['styles/{,*/}*.{scss,sass}'],
+			tasks: ['compass:debug']
+		},
+		gruntfile: {
+			files: ['Gruntfile.js']
+		},
+		jade: {
+			files: ["views/*.jade","views/pages/*.jade"],
+			tasks: ["jade"]
+		}
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
@@ -304,23 +308,8 @@ module.exports = function(grunt) {
 		 	files: [{
 		  		cwd: 'views/pages',
 		  		src: '**/*.jade',
-		  		dest: './',
+		  		dest: '../',
 		  		expand: true,
-				ext: '.html'
-			}]
-		},
-		newsletter: {
-			options: {
-				pretty: true,
-			data: {
-				debug: false
-			}
-			},
-			files: [{
-				cwd: 'views/',
-				src: 'mailtemplate.jade',
-				dest: './',
-				expand: true,
 				ext: '.html'
 			}]
 		}
@@ -333,12 +322,14 @@ module.exports = function(grunt) {
             '../css/{,*/}*.css',
             '../templates/{,*/}*.html',
             './scripts/{,*/}*.js',
-            '../Views/{,*/}*.cshtml'
+            '../Views/{,*/}*.cshtml',
+            '../{,*/}*.html'
           ]
         },
         options: {
-          proxy: '',
-          watchTask: true
+			//proxy: '',
+			watchTask: true,
+			server: '../'
         }
       }
     },
@@ -365,7 +356,7 @@ module.exports = function(grunt) {
   ]);
 
 	grunt.registerTask('render', [
-		'jade:newsletter'
+		'jade'
 	]);
 
 
@@ -378,6 +369,7 @@ module.exports = function(grunt) {
     'copy:templates',
     'copy:fonts',
     'browserSync',
+	'jade',
     'watch'
   ]);
 
