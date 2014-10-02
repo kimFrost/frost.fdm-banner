@@ -17,6 +17,7 @@
 .overview__iframe {
 	display: block;
 	clear: both;
+	overflow: hidden;
 	& + & {
 		margin-top: 30px;
 	}
