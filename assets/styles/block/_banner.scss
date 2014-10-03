@@ -14,8 +14,57 @@
 	}
 }
 
-.banner {
+.banner,
+.banner__devinfo {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
+}
+
+.banner__devinfo {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.banner__fps {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.banner__step {
+	@include transition(transform 300ms ease);
+	@include translate(100%, 0%);
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.banner__substep {
+	@include transition(transform 300ms ease);
+	@include translate(0%, 100%);
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Modifiers
+
+.banner__step--show {
+	@include translate(0%, 0%);
+}
+
+.banner__step--done {
+	@include translate(-100%, 0%);
+}
+
+.banner__substep--show {
+	@include translate(0%, 100%);
 }

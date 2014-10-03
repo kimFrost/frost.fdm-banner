@@ -11,5 +11,5 @@
 angular
   .module('fdm-banner', [])
   .run(function () {
-    console.log('Main Application Run()');
+    //console.log('Main Application Run()');
   });

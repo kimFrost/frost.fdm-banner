@@ -1,5 +1,5 @@
 doctype html
-html(data-ng-app="tilbudswizard", lang="da")
+html(data-ng-app="fdm-banner", lang="da")
 	head
 		title Banner
 		meta(charset="UTF-8")
@@ -7,14 +7,20 @@ html(data-ng-app="tilbudswizard", lang="da")
 		meta(name="viewport", content="width=device-width, initial-scale=1")
 		link(rel='stylesheet', href='./css/main.css')
 		// Main app js
-		script(src='./scripts/main_head.js')
+		//script(src='./assets/scripts/libs/aegis-0.0.1.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js')
 		block head
 
 	body
 		block body
-		section.banner
+		//section.banner(data-aegis-class="{'banner--ready':states.somState}")
+		section.banner(data-ng-controller="bannerCtrl as banner")
+			div.banner__fps(data-ng-bind="banner.fps")
+
 			block glovalVars
 
 			block content
 
-		script(src='./scripts/main.js')
+		//script(src='./assets/scripts/main__aegis.js')
+		script(src="/assets/scripts/app.js")
+		script(src="/assets/scripts/controllers/banner.controller.js")

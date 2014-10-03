@@ -1,0 +1,33 @@
+
+div introtext
+
+form
+	input(type="text", placeholder="Hvor vil du rejse fra?")
+	input(type="text", placeholder="Hvor vil du hen?")
+	//input(type="date" id="date1", name="date1", min="2014-06-01", max="2015-12-31")
+	//input(type="date" id="date2", name="date2", min="2014-06-01", max="2015-12-31")
+
+	select(id="date_day")
+		option(value="", selected) Dag
+		- for (var i=1;i<31;i++)
+			option(value="#{i}") #{i}
+	select(id="date_month")
+		option(value="", selected) Måned
+		- for (var i=1;i<=12;i++)
+			option(value="#{i}") #{i}
+	select(id="date_year")
+		option(value="2014", selected) 2014
+		option(value="2015") 2015
+	input(type="text", id="text3", name="text3", readonly)
+	input(type="submit", value="Søg rejser")
+
+
+
+div.banner__step step 1
+	div.banner__substep substep 1
+
+div.banner__step step 2
+	div.banner__substep substep 2
+
+div.banner__step step 3
+	div.banner__substep substep 3

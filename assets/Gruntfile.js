@@ -48,8 +48,8 @@ module.exports = function(grunt) {
 			files: ['Gruntfile.js']
 		},
 		jade: {
-			files: ["views/*.jade","views/pages/*.jade"],
-			tasks: ["jade"]
+			files: ['views/*.jade', 'views/pages/*.jade', 'views/blocks/*.jade'],
+			tasks: ['jade']
 		}
     },
 
