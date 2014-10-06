@@ -32,6 +32,9 @@ $spr-layout:smart;
 
 // Block
 @import "block/_banner";
+@import "block/_form";
+@import "block/_grid";
+@import "block/_center";
 
 // Vendor
 @import "vendor/_vendor_boilerplate";

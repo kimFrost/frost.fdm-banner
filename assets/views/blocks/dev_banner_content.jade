@@ -14,8 +14,8 @@ form
 	select(id="date_month")
 		option(value="", selected) Måned
 		- for (var i=1;i<=12;i++)
-			option(value="#{i}") #{i}
-	select(id="date_year")
+			option(value="#{i}") #{i} 2014
+	//select(id="date_year")
 		option(value="2014", selected) 2014
 		option(value="2015") 2015
 	input(type="text", id="text3", name="text3", readonly)
@@ -23,11 +23,36 @@ form
 
 
 
-div.banner__step step 1
+div.banner__stepswitcher(data-ng-click="banner.switchstep(-1)", data-ng-class="'banner__stepswitcher--disabled'")
+div.banner__stepswitcher.banner__stepswitcher--right(data-ng-click="banner.switchstep(1)")
+
+div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(0), 'banner__step--done':banner.steps[0].states.valid}")
+
+	div.center.center--stretch.center--horizontal.center--column
+		div.grid.grid--24.grid--spacebottom
+			div.grid.grid--8.grid--spaceright Afrejse og destination
+			div.grid.grid--16.grid--spaceleft Destinations land og by
+		form.form(name="locationForm")
+			div.grid.grid--8.grid--spaceright
+				select.form__select(data-ng-model="locationForm.formdata.departure")
+					option.form__option(value="") Hvor vil du rejse fra
+					option.form__option(data-ng-repeat="departure in banner.departures", data-ng-value="departure.name", data-ng-bind="departure.name")
+			div.grid.grid--6.grid--spaceleft.grid--spaceright
+				//input.form__input(type="text", placeholder="Hvor vil du hen?")
+				select.form__select(data-ng-model="locationForm.formdata.destianation.country")
+					option.form__option(value="") Land
+					option.form__option(data-ng-repeat="destination in banner.destinations", data-ng-value="destination.name", data-ng-bind="destination.name")
+			div.grid.grid--6.grid--spaceleft.grid--spaceright
+				select.form__select(data-ng-model="locationForm.formdata.destianation.town")
+					option.form__option(value="") By
+					option.form__option(value="Costa del Sol") Costa del Sol
+			div.grid.grid--4.grid--spaceleft
+				input.form__button(type="button", value="Videre", data-ng-click="banner.switchstep(1)")
+
 	div.banner__substep substep 1
 
-div.banner__step step 2
+div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(1), 'banner__step--done':banner.steps[1].states.valid}") step 2
 	div.banner__substep substep 2
 
-div.banner__step step 3
+div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(2), 'banner__step--done':banner.steps[2].states.valid}") step 3
 	div.banner__substep substep 3
