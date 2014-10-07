@@ -1,4 +1,4 @@
-.idea
-css
-scripts
+.idea/
+/css/
+/scripts/
 *.html
