@@ -93,7 +93,6 @@ div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(1), 'bann
 						option.form__option(value="", selected) Dag
 						option.form__option(data-ng-repeat="date in banner.dates[formdata.returnMonth].dates", data-ng-value="date") {{date}}
 
-
 				div.grid.grid--4.grid--spaceleft
 					input.form__button(type="submit", value="Videre", data-ng-disabled="dateForm.$invalid")
 
@@ -113,11 +112,15 @@ div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(2), 'bann
 			div.grid.grid--24
 				div.grid.grid--10.grid--spaceright
 					select.form__select(required, name="roomAdults", data-ng-model="formdata.roomAdults")
-						option.form__option(value="", selected) Måned
-						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+						option.form__option(value="1") 1 voksen
+						option.form__option(value="2", ng-selected="selected") 2 voksen
+						- for (var i=3;i<=15;i++)
+							option.form__option(value="#{i}") #{i} voksne
 				div.grid.grid--10.grid--spaceleft.grid--spaceright
 					select.form__select(required, name="roomKids", data-ng-model="formdata.roomKids")
-						option.form__option(value="", selected) Måned
-						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+						option.form__option(value="0", ng-selected="selected") 0 børn
+						option.form__option(value="1") 1 barn
+						- for (var i=2;i<=15;i++)
+							option.form__option(value="#{i}") #{i} børn
 				div.grid.grid--4.grid--spaceleft
 					input.form__button(type="submit", value="Søg rejse", data-ng-disabled="roomForm.$invalid")
