@@ -23,36 +23,101 @@ form
 
 
 
-div.banner__stepswitcher(data-ng-click="banner.switchstep(-1)", data-ng-class="'banner__stepswitcher--disabled'")
-div.banner__stepswitcher.banner__stepswitcher--right(data-ng-click="banner.switchstep(1)")
+div.banner__stepswitcher(data-ng-click="banner.switchstep(-1)", data-ng-class="{'banner__stepswitcher--disabled': !banner.steps[banner.activeStep-1].states.valid}")
+div.banner__stepswitcher.banner__stepswitcher--right(data-ng-click="banner.switchstep(1)", data-ng-class="{'banner__stepswitcher--disabled': !banner.steps[banner.activeStep].states.valid}")
+
+
 
 div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(0), 'banner__step--done':banner.steps[0].states.valid}")
-
 	div.center.center--stretch.center--horizontal.center--column
 		div.grid.grid--24.grid--spacebottom
-			div.grid.grid--8.grid--spaceright Afrejse og destination
-			div.grid.grid--16.grid--spaceleft Destinations land og by
-		form.form(name="locationForm")
 			div.grid.grid--8.grid--spaceright
-				select.form__select(data-ng-model="locationForm.formdata.departure")
+				strong Afrejse og destination
+			div.grid.grid--16.grid--spaceleft
+				strong Destinations land og by
+		//form.form(name="locationForm", novalidate, data-ng-submit="banner.formvalidate('locationForm', banner.switchstep(1))")
+		form.form(name="locationForm", novalidate, data-ng-submit="locationForm.$valid; banner.steps[0].states.valid=true; banner.switchstep(1)")
+
+			div.grid.grid--8.grid--spaceright
+				select.form__select(required, name="departureLocation", data-ng-model="formdata.departureLocation")
 					option.form__option(value="") Hvor vil du rejse fra
 					option.form__option(data-ng-repeat="departure in banner.departures", data-ng-value="departure.name", data-ng-bind="departure.name")
+
 			div.grid.grid--6.grid--spaceleft.grid--spaceright
 				//input.form__input(type="text", placeholder="Hvor vil du hen?")
-				select.form__select(data-ng-model="locationForm.formdata.destianation.country")
+				select.form__select(required, name="destianationCountry", data-ng-model="formdata.destianationCountry")
 					option.form__option(value="") Land
 					option.form__option(data-ng-repeat="destination in banner.destinations", data-ng-value="destination.name", data-ng-bind="destination.name")
+
 			div.grid.grid--6.grid--spaceleft.grid--spaceright
-				select.form__select(data-ng-model="locationForm.formdata.destianation.town")
+				select.form__select(required, name="destianationTown", data-ng-model="formdata.destianationTown", data-ng-disabled="locationForm.destianationCountry.$invalid")
 					option.form__option(value="") By
 					option.form__option(value="Costa del Sol") Costa del Sol
+
 			div.grid.grid--4.grid--spaceleft
-				input.form__button(type="button", value="Videre", data-ng-click="banner.switchstep(1)")
+				input.form__button(type="submit", value="Videre", data-ng-disabled="locationForm.$invalid")
 
-	div.banner__substep substep 1
 
-div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(1), 'banner__step--done':banner.steps[1].states.valid}") step 2
-	div.banner__substep substep 2
 
-div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(2), 'banner__step--done':banner.steps[2].states.valid}") step 3
-	div.banner__substep substep 3
+div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(1), 'banner__step--done':banner.steps[1].states.valid}")
+	div.center.center--stretch.center--horizontal.center--column
+		form.form(name="dateForm", novalidate, data-ng-submit="dateForm.$valid; banner.steps[1].states.valid=true; banner.switchstep(1)")
+
+			div.grid.grid--24.grid--spacebottom
+
+				div.grid.grid--10.grid--spaceright
+					strong Udrejse
+
+				div.grid.grid--10.grid--spaceleft.grid--spaceright
+					strong Hjemrejse
+
+			div.grid.grid--24
+
+				div.grid.grid--6.grid--spaceright
+					select.form__select(required, name="departureMonth", data-ng-model="formdata.departureMonth")
+						option.form__option(value="", selected) Måned
+						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+
+				div.grid.grid--4.grid--spaceright
+					select.form__select(required, name="departureDate", data-ng-model="formdata.departureDate", data-ng-disabled="dateForm.departureMonth.$invalid")
+						option.form__option(value="", selected) Dag
+						option.form__option(data-ng-repeat="date in banner.dates[formdata.departureMonth].dates", data-ng-value="date") {{date}}
+
+				div.grid.grid--6.grid--spaceleft.grid--spaceright
+					select.form__select(required, name="returnMonth", data-ng-model="formdata.returnMonth")
+						option.form__option(value="", selected) Måned
+						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+
+				div.grid.grid--4.grid--spaceright
+					select.form__select(required, name="returnDate", data-ng-model="formdata.returnDate", data-ng-disabled="dateForm.returnMonth.$invalid")
+						option.form__option(value="", selected) Dag
+						option.form__option(data-ng-repeat="date in banner.dates[formdata.returnMonth].dates", data-ng-value="date") {{date}}
+
+
+				div.grid.grid--4.grid--spaceleft
+					input.form__button(type="submit", value="Videre", data-ng-disabled="dateForm.$invalid")
+
+
+
+div.banner__step(data-ng-class="{'banner__step--show':banner.checkstep(2), 'banner__step--done':banner.steps[2].states.valid}")
+	div.center.center--stretch.center--horizontal.center--column
+		form.form(name="roomForm", novalidate)
+			div.grid.grid--24.grid--spacebottom
+
+				div.grid.grid--10.grid--spaceright
+					strong Antal voksne
+
+				div.grid.grid--10.grid--spaceleft.grid--spaceright
+					strong Antan børn
+
+			div.grid.grid--24
+				div.grid.grid--10.grid--spaceright
+					select.form__select(required, name="roomAdults", data-ng-model="formdata.roomAdults")
+						option.form__option(value="", selected) Måned
+						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+				div.grid.grid--10.grid--spaceleft.grid--spaceright
+					select.form__select(required, name="roomKids", data-ng-model="formdata.roomKids")
+						option.form__option(value="", selected) Måned
+						option.form__option(data-ng-repeat="month in banner.dates", data-ng-value="month.index") ({{month.year}}) {{month.name}}
+				div.grid.grid--4.grid--spaceleft
+					input.form__button(type="submit", value="Søg rejse", data-ng-disabled="roomForm.$invalid")

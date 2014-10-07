@@ -32,6 +32,18 @@ $formInputHeight: 36px;
 	outline: none;
 	vertical-align: middle;
 	z-index: 1;
+	&[disabled="disabled"] {
+		opacity: 0.6;
+		cursor: default;
+	}
+	&.ng-dirty {
+		&.ng-invalid {
+			border-color: $color_error;
+		}
+		&.ng-valid {
+			//border-color: green;
+		}
+	}
 }
 
 .form__input {
@@ -52,6 +64,12 @@ $formInputHeight: 36px;
 	}
 	&:active {
 		background-color: darken($color_warmth, 5%);
+	}
+	&[disabled="disabled"] {
+		&:hover,
+		&:active {
+			background-color: $color_warmth;
+		}
 	}
 }
 
