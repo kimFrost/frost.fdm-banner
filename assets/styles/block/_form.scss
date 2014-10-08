@@ -75,6 +75,16 @@ $formInputHeight: 36px;
 
 .form__select {
 	@extend .form__inputshared;
+	//@include appearance(none);
+
+
+	&::-ms-expand {
+		//display: none;
+		color: $color_warmth;
+		border: none;
+		outline: 0;
+		background-color: transparent;
+	}
 }
 
 .form__option {
@@ -85,6 +95,7 @@ $formInputHeight: 36px;
 
 .form__select--hidden {
 	@include appearance(none);
+	appearance: none;
 	//position: absolute;
 	//top: 0;
 	height: 0;

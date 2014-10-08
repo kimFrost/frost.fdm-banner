@@ -23,50 +23,228 @@ window.requestAnimFrame = (function(){
 		departures: [
 			{
 				name: 'København',
+				id: 'CPH',
 				flag: 'dk'
 			},
 			{
 				name: 'Aalborg',
+				id: 'AAL',
 				flag: 'dk'
 			},
 			{
 				name: 'Aarhus',
+				id: 'AAR',
 				flag: 'dk'
 			},
 			{
 				name: 'Billund',
+				id: 'BLL',
 				flag: 'dk'
 			},
 			{
 				name: 'Rønne',
+				id: 'RNN',
 				flag: 'dk'
 			},
 			{
 				name: 'Hamburg',
-				flag: 'de'
+				id: 'HAM',
+				flag: 'd'
+			},
+			{
+				name: 'Færøerne',
+				id: 'FAE',
+				flag: 'dk'
+			},
+			{
+				name: 'Malmø',
+				id: 'MMA',
+				flag: 's'
+			},
+			{
+				name: 'Rom',
+				id: 'ROM',
+				flag: 'i'
+			},
+			{
+				name: 'Venedig',
+				id: 'VCE',
+				flag: 'i'
+			},
+			{
+				name: 'Barcelona',
+				id: 'BCN',
+				flag: 'e'
+			},
+			{
+				name: 'Malaga / Costa del Sol',
+				id: 'AGP',
+				flag: 'e'
+			},
+			{
+				name: 'Paris',
+				id: 'PAR',
+				flag: 'f'
+			},
+			{
+				name: 'NICE',
+				id: 'NCE',
+				flag: 'f'
+			},
+			{
+				name: 'Bordeaux',
+				id: 'BOD',
+				flag: 'f'
+			},
+			{
+				name: 'Bangkok',
+				id: 'BKK',
+				flag: 'th'
+			},
+			{
+				name: 'Athen',
+				id: 'ATH',
+				flag: 'gr'
+			},
+			{
+				name: 'London',
+				id: 'LON',
+				flag: 'gb'
+			},
+			{
+				name: 'Oslo',
+				id: 'OSL',
+				flag: 'n'
+			},
+			{
+				name: 'Stockholm',
+				id: 'STO',
+				flag: 's'
+			},
+			{
+				name: 'Berlin',
+				id: 'BER',
+				flag: 'd'
 			}
 		],
 		destinations: [
 			{
 				name: 'Spanien',
+				index: 0,
 				towns: [
 					{
-						name: 'Costa del Sol'
+						name: 'Costa del Sol',
+						id: 'CSOL_R'
 					},
 					{
-						name: 'Barcelona'
+						name: 'Barcelona',
+						id: 'BCN'
 					}
 				]
 			},
 			{
+				name: 'Storbritannien',
+				index: 1,
+				towns: [
+
+				]
+			},
+			{
 				name: 'USA',
+				index: 2,
 				towns: [
 					{
-						name: 'New York'
+						name: 'New York',
+						id: 'NYC'
 					},
 					{
-						name: 'Florida'
+						name: 'Florida',
+						id: 'USFL_R'
 					}
+				]
+			},
+			{
+				name: 'Frankrig',
+				index: 3,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Tyskland',
+				index: 4,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Italien',
+				index: 5,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Danmark',
+				index: 6,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Tjekkiet',
+				index: 7,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Malta',
+				index: 8,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Thailand',
+				index: 9,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Tyrkiet',
+				index: 10,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Portugal',
+				index: 11,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Holland',
+				index: 12,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Forenede Arabiske Emirater',
+				index: 13,
+				towns: [
+
+				]
+			},
+			{
+				name: 'Kroatien',
+				index: 14,
+				towns: [
+
 				]
 			}
 		]
@@ -78,18 +256,29 @@ window.requestAnimFrame = (function(){
         .controller('bannerCtrl', bannerCtrl);
 
 	/* @ngInject */
-	function bannerCtrl($scope, $rootScope, $timeout, $interval) {
+	function bannerCtrl($scope, $timeout, $interval) {
 
 		// Data
 		var banner = this;
 		banner.options = {
 			debug: true,
-			loop: false
+			loop: false,
+			searchurl: 'http://rejser.fdm-travel.dk/soeger?',
+			search: {
+				searchtype: 1,
+				departuredate: '',
+				arriveat: '',
+				returndate: '',
+				//paxcombination: '',
+				departurecity: ''
+				//roomchildage: ''
+			}
 		};
 		banner.fps = -1;
 		banner.departures = datafeed.departures;
 		banner.destinations = datafeed.destinations;
 		banner.activeStep = 0;
+		banner.lastStep = 2;
 		banner.timer = null;
 		banner.dates = generateDates();
 		banner.steps = [
@@ -156,9 +345,13 @@ window.requestAnimFrame = (function(){
 
 		// Public functions
 		banner.checkstep = checkstep;
+		banner.setStepValidation = setStepValidation;
 		banner.switchstep = switchstep;
 		banner.returnOptionsClass = returnOptionsClass;
 		banner.formvalidate = formvalidate;
+		banner.getTowns = getTowns;
+		banner.checkKidsStep = checkKidsStep;
+		banner.send = send;
 
 		/** BINDINGS */
 		// Update framerate every second
@@ -190,6 +383,118 @@ window.requestAnimFrame = (function(){
 					console.log(msg1);
 				}
 			}
+		}
+
+		function clone(obj) {
+			if (null === obj || 'object' !== typeof obj) {
+				return obj;
+			}
+			var copy = obj.constructor();
+			for (var attr in obj) {
+				if (obj.hasOwnProperty(attr)) {
+					copy[attr] = obj[attr];
+				}
+			}
+			return copy;
+		}
+
+		function encodeQueryData(data) {
+			var ret = [];
+			for (var d in data) {
+				ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+			}
+			return ret.join('&');
+		}
+
+		function yyyymmdd(date) {
+			var yyyy = date.getFullYear().toString();
+			var mm = (date.getMonth()+1).toString(); // getMonth() is zero-based
+			var dd  = date.getDate().toString();
+			return yyyy + (mm[1]?mm:'0'+mm[0]) + (dd[1]?dd:'0'+dd[0]); // padding
+		}
+
+		function send() {
+			var data = clone(banner.options.search);
+
+			data.departurecity = $scope.formdata.departureLocation;
+			data.arriveat =  $scope.formdata.destianationTown;
+			data.departuredate = (function(){
+				var realMonth = banner.dates[parseInt($scope.formdata.departureMonth)];
+				var date = new Date(realMonth.year, (realMonth.value), $scope.formdata.departureDate);
+				date = yyyymmdd(date);
+				return date;
+			})();
+			data.returndate = (function(){
+				var realMonth = banner.dates[parseInt($scope.formdata.returnMonth)];
+				var date = new Date(realMonth.year, (realMonth.value), $scope.formdata.returnDate);
+				date = yyyymmdd(date);
+				return date;
+			})();
+
+			/*
+			var temp = {
+				departureDate: '1',
+				departureLocation: 'AAR',
+				departureMonth: '1',
+				destianationCountry: 'Spanien',
+				destianationTown: 'Costa del Sol',
+				returnDate: '4',
+				returnMonth: '2',
+				roomAdults: '2',
+				roomKids: '0',
+			 	roomInfants: '0'
+			};
+			*/
+
+			log('data:after', data);
+
+			var queryString = encodeQueryData(data);
+
+			queryString = queryString + '&paxcombination=' + $scope.formdata.roomAdults + 'ADT' + ',' + (parseInt($scope.formdata.roomInfants) + parseInt($scope.formdata.roomKids)) + 'CHD';
+			if (parseInt($scope.formdata.roomInfants) > 0 || parseInt($scope.formdata.roomKids) > 0) {
+				queryString = queryString + '&roomchildage=' + (function(){
+					var result = '';
+					var i;
+					for (i=0;i<parseInt($scope.formdata.roomInfants); i++) {
+						result = result + '2,';
+					}
+					for (i=0;i<parseInt($scope.formdata.roomKids); i++) {
+						result = result + '10,';
+					}
+					return result;
+				})();
+			}
+
+
+			log('queryString', queryString);
+			var url = banner.options.searchurl + queryString;
+			window.open(url,'_blank');
+
+
+
+			//http://rejser.fdm-travel.dk/soeger?searchtype=0&departuredate=20141103&returndate=20141110&departurecity=CPH&arriveat=MIA&paxcombination=2ADT,2CHD*2ADT&roomchildage=6,11*
+			//http://rejser.fdm-travel.dk/soeger?searchtype=0&departuredate=20141103&returndate=20141110&departurecity=CPH&arriveat=MIA&paxcombination=2ADT
+			//http://rejser.fdm-travel.dk/soeger?searchtype=0&departuredate=20141103&returndate=20141110&departurecity=CPH&arriveat=MIA&paxcombination=2ADT,2CHD&roomchildage=0,0
+
+			//http://rejser.fdm-travel.dk/soeger?searchtype=1&departuredate=20141210&arriveat=CSOL_R&returndate=20141216&paxcombination=&departurecity=CPH&paxcombination=2ADT,0CHD
+			//http://rejser.fdm-travel.dk/soeger?searchtype=1&departuredate=20141210&arriveat=CSOL_R&returndate=20141216&paxcombination=&departurecity=CPH&paxcombination=2ADT,3CHD&roomchildage=0,0,
+
+
+			//http://rejser.fdm-travel.dk/soeger?searchtype=1&departuredate=20150204&arriveat=CSOL_R&returndate=20150211&departurecity=CPH&paxcombination=2ADT,3CHD&roomchildage=0,0,0,
+			//http://rejser.fdm-travel.dk/soeger?searchtype=1&departuredate=20141103&arriveat=CSOL_R&returndate=20141110&departurecity=CPH&paxcombination=2ADT,8CHD&roomchildage=99,99,99,99,99,99,99,99,
+
+		}
+
+		function getTowns(countryname) {
+			var towns = null;
+			for (var i=0;i<banner.destinations.length;i++) {
+				var destination = banner.destinations[i];
+				if (destination.name === countryname) {
+					towns = destination.towns;
+					break;
+				}
+			}
+			return towns;
 		}
 
 		function daysInMonth(month,year) {
@@ -233,6 +538,10 @@ window.requestAnimFrame = (function(){
 			return 'form__option--'+name;
 		}
 
+		function checkKidsStep() {
+
+		}
+
 		// Check step
 		function checkstep(id) {
 			if (id !== undefined) {
@@ -241,6 +550,44 @@ window.requestAnimFrame = (function(){
 				}
 				else {
 					return false;
+				}
+			}
+		}
+
+		function addStep() {
+			var numOfStep = banner.steps.length;
+			var id = numOfStep;
+			banner.steps[id] = {
+				id: id,
+				name: 'Step '+id,
+				require: [],
+				states: {
+					valid: false,
+					locked: false,
+					done: false
+				}
+			};
+			validateLastStep();
+			return id;
+		}
+
+		function removeStep(id) {
+			banner.steps.slice(id,1);
+			validateLastStep();
+		}
+
+		function validateLastStep() {
+			banner.lastStep = banner.steps.length-1;
+		}
+
+		function setStepValidation(id, state, goToNext) {
+			goToNext = (goToNext === undefiend) ? false : goToNext;
+			var step = banner.steps[id];
+			if (step !== undefiend) {
+				step.states.valid = state;
+				updateLocks(); // Update lock states
+				if (goToNext) {
+					switchstep(id+1);
 				}
 			}
 		}
@@ -288,7 +635,7 @@ window.requestAnimFrame = (function(){
 					newActiveIndex = 0;
 				}
 			}
-			updateLocks(); // Update lock states
+			//updateLocks(); // Update lock states
 			var locked = checklock(newActiveIndex);
 			if (!locked) {
 				banner.activeStep = newActiveIndex;
