@@ -13,12 +13,14 @@ html(data-ng-app="fdm-banner", lang="da")
 
 	body
 		block body
+		block globalVars
+			- var bannerClasses = "banner";
 		//section.banner(data-aegis-class="{'banner--ready':states.somState}")
-		section.banner(data-ng-controller="bannerCtrl as banner")
+		section(class="#{bannerClasses}", data-ng-controller="bannerCtrl as banner")
 			div.banner__fps(data-ng-bind="banner.fps")
-			div.banner__veil(data-ng-class="{'banner__veil--hide': banner.states.hideVeil}")
+			//div.banner__veil(data-ng-class="{'banner__veil--hide': banner.states.hideVeil}")
 
-			block glovalVars
+
 
 			block content
 
