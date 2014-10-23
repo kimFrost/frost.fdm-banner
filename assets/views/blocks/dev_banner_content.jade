@@ -1,21 +1,22 @@
 
 form.form.banner__content.form--theme1
-	div.grid--12.banner__logo
-	div.grid--7
+	div.grid--11.banner__logo
+	div.grid--8
 		div.grid--48
 			div.form__select
-				select
-					option.form__option Hvor vil du rejse fra?
+				select(name="destinationFrom", id="destinationFrom")
+					option.form__option(value="") Hvor vil du rejse fra?
+					option.form__option(value="CPH") København
 		div.grid__wedge
 		div.grid--48
 			div.form__select
-				select
-					option.form__option Hvor vil du hen?
+				select(name="destinationTo", id="destinationTo")
+					option.form__option(value="") Hvor vil du hen?
 					optgroup(label="Danmark")
-						option.form__option København
+						option.form__option(value="CPH") København
 					optgroup(label="Spanien")
-						option.form__option Madrid
-						option.form__option Costa del Sol
+						option.form__option(value="SOMSADSAD") Madrid
+						option.form__option(value="ASDSASADS") Costa del Sol
 	div.grid--1
 	div.grid--14
 		div.grid--48
@@ -23,11 +24,13 @@ form.form.banner__content.form--theme1
 				div.form__label Udrejse:
 			div.grid--18
 				div.form__select
-					select
-						option.form__option Måned
+					select(name="departureMonth", id="departureMonth")
+						option.form__option(value="") Måned
+						option.form__option(value="1") Januar
+						option.form__option(value="2") Februar
 			div.grid--12.grid--spaceleft
 				div.form__select
-					select
+					select(name="departureDay", id="departureDay")
 						option.form__option Dag
 		div.grid__wedge
 		div.grid--48
@@ -35,45 +38,56 @@ form.form.banner__content.form--theme1
 				div.form__label Hjemrejse:
 			div.grid--18
 				div.form__select
-					select
-						option.form__option Måned
+					select(name="returnMonth", id="returnMonth")
+						option.form__option(value="") Måned
+						option.form__option(value="1") Januar
+						option.form__option(value="2") Februar
 			div.grid--12.grid--spaceleft
 				div.form__select
-					select
+					select(name="returnDay", id="returnDay")
 						option.form__option Dag
 	div.grid--1
 	div.grid--5
 		div.grid--48
 			div.form__select
-				select
-					option.form__option 2 voksne
+				select(name="countAdults", id="countAdults")
+					option.form__option(value="1") 1 voksen
+					option.form__option(value="2", selected="selected") 2 voksne
+					option.form__option(value="3") 3 voksne
+					option.form__option(value="4") 4 voksne
+					option.form__option(value="5") 5 voksne
+					option.form__option(value="6") 6 voksne
 		div.grid__wedge
 		div.grid--48
 			div.form__select
-				select
-					option.form__option 4 børn
+				select(name="countChildren", id="countChildren")
+					option.form__option(value="0", selected="selected") 0 børn
+					option.form__option(value="1") 1 barn
+					option.form__option(value="2") 2 børn
+					option.form__option(value="3") 3 børn
+					option.form__option(value="4") 4 børn
 	div.grid--1
 	div.grid--7
 		div.grid--48
 			div.grid--12.grid--spaceright
 				div.form__select.form__select--narrow
-					select
-						option.form__option -
-						option.form__option 1
-						option.form__option 2
-						option.form__option 3
+					select(name="childOneAge", id="childOneAge")
+						option.form__option(value="") -
+						option.form__option(value="1") 1
+						option.form__option(value="2") 2
+						option.form__option(value="3") 3
 			div.grid--12.grid--spaceright
 				div.form__select.form__select--narrow
-					select
+					select(name="childTwoAge", id="childTwoAge")
 						option.form__option -
 			div.grid--12.grid--spaceright
 				div.form__select.form__select--narrow
-					select
+					select(name="childThreeAge", id="childThreeAge")
 						option.form__option -
 			div.grid--12
 				div.form__select.form__select--narrow
-					select
+					select(name="childFourAge", id="childFourAge")
 						option.form__option -
 		div.grid__wedge
 		div.grid--48
-			input.form__button(type="button", value="Søg rejse")
+			input.form__button(type="button", value="Søg rejse", id="searchButton")

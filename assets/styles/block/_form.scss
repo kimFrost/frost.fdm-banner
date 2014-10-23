@@ -151,6 +151,9 @@ $formInputHeight: 36px;
 .form__select--narrow {
 	padding-left: 2px;
 	padding-right: 10px;
+	&[disabled="disabled"] {
+		opacity: 0;
+	}
 	&:after {
 		z-index: 0;
 	}
