@@ -139,7 +139,7 @@ window.requestAnimFrame = (function(){
 				searchButton: {
 					elem: document.querySelector('#searchButton'),
 					value: null,
-					require: ['destinationFrom', 'destinationTo'],
+					require: ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay'],
 					states: {
 						valid: false,
 						disabled: true,
@@ -261,11 +261,6 @@ window.requestAnimFrame = (function(){
 	Bindings
 ---------------------------------------**/
 
-	for (var key in banner.form.inputs) {
-		var input = banner.form.inputs[key];
-		input.elem.addEventListener('change', banner.valuesChange, false);
-	}
-
 	// Special handling for child ages
 	banner.form.inputs.countChildren.elem.addEventListener('change', function(event) {
 		var value = event.target.value;
@@ -276,34 +271,44 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = true;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay'];
 				break;
 			case 1:
 				banner.form.inputs.childOneAge.states.disabled = false;
 				banner.form.inputs.childTwoAge.states.disabled = true;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge'];
 				break;
 			case 2:
 				banner.form.inputs.childOneAge.states.disabled = false;
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge'];
 				break;
 			case 3:
 				banner.form.inputs.childOneAge.states.disabled = false;
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = false;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge'];
 				break;
 			case 4:
 				banner.form.inputs.childOneAge.states.disabled = false;
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = false;
 				banner.form.inputs.childFourAge.states.disabled = false;
+				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge', 'childFourAge'];
 				break;
 		}
 		banner.updateStates();
 	}, false);
+
+	for (var key in banner.form.inputs) {
+		var input = banner.form.inputs[key];
+		input.elem.addEventListener('change', banner.valuesChange, false);
+	}
 
 	banner.updateStates();
 

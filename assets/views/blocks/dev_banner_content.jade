@@ -31,7 +31,8 @@ form.form.banner__content.form--theme1
 			div.grid--12.grid--spaceleft
 				div.form__select
 					select(name="departureDay", id="departureDay")
-						option.form__option Dag
+						option.form__option(value="") Dag
+						option.form__option(value="1") 1
 		div.grid__wedge
 		div.grid--48
 			div.grid--18
@@ -45,7 +46,8 @@ form.form.banner__content.form--theme1
 			div.grid--12.grid--spaceleft
 				div.form__select
 					select(name="returnDay", id="returnDay")
-						option.form__option Dag
+						option.form__option(value="") Dag
+						option.form__option(value="1") 1
 	div.grid--1
 	div.grid--5
 		div.grid--48
@@ -79,15 +81,24 @@ form.form.banner__content.form--theme1
 			div.grid--12.grid--spaceright
 				div.form__select.form__select--narrow
 					select(name="childTwoAge", id="childTwoAge")
-						option.form__option -
+						option.form__option(value="") -
+						option.form__option(value="1") 1
+						option.form__option(value="2") 2
+						option.form__option(value="3") 3
 			div.grid--12.grid--spaceright
 				div.form__select.form__select--narrow
 					select(name="childThreeAge", id="childThreeAge")
-						option.form__option -
+						option.form__option(value="") -
+						option.form__option(value="1") 1
+						option.form__option(value="2") 2
+						option.form__option(value="3") 3
 			div.grid--12
 				div.form__select.form__select--narrow
 					select(name="childFourAge", id="childFourAge")
-						option.form__option -
+						option.form__option(value="") -
+						option.form__option(value="1") 1
+						option.form__option(value="2") 2
+						option.form__option(value="3") 3
 		div.grid__wedge
 		div.grid--48
 			input.form__button(type="button", value="Søg rejse", id="searchButton")
