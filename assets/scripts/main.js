@@ -148,6 +148,10 @@ window.requestAnimFrame = (function(){
 				}
 			}
 		},
+		departureDates: [],
+		departureMonth: [],
+		returnDates: [],
+		returnMonths: [],
 		logCount: 0,
 		states: {
 			valid: false
@@ -158,7 +162,7 @@ window.requestAnimFrame = (function(){
 ---------------------------------------**/
 	banner.log = function(msg, msg2) {
 		try {
-			if (banner.logCount > 200) {
+			if (banner.logCount > 500) {
 				console.clear();
 				banner.logCount = 0;
 			}
@@ -173,6 +177,116 @@ window.requestAnimFrame = (function(){
 		catch(err) {
 			//send error to developer platform
 		}
+	};
+/**---------------------------------------
+	Generate Dates & Month
+---------------------------------------**/
+	banner.daysInMonth = function(month, year) {
+		var numOfDates =  new Date(year, (month+1), 0).getDate();
+		var dates = [];
+		for (var i=1;i<=numOfDates;i++) {
+			dates.push(i);
+		}
+		return dates;
+	};
+	banner.generateDates = function() {
+		// Range 4-365
+		var departureDates = banner.generateCalender(4, 361);
+		var returnDates = banner.generateCalender(6, 363);
+
+		var monthList = ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'];
+
+		var i,
+			date,
+			month,
+			year,
+			index,
+			ii,
+			found,
+			months;
+
+		months = [];
+		for (i=0;i<departureDates.length;i++) {
+			date = departureDates[i];
+			month = date.getMonth();
+			year = date.getFullYear();
+
+			found = false;
+			for (ii=0;ii<months.length;ii++) {
+				if (months[ii].value === year + ' ' + month) {
+					found = true;
+				}
+			}
+			if (!found) {
+				months.push({
+					value: year + ' ' + month,
+					name: monthList[month],
+					dates: []
+				});
+			}
+			for (ii=0;ii<months.length;ii++) {
+				if (months[ii].value === year + ' ' + month) {
+					months[ii].dates.push(date);
+				}
+			}
+		}
+		banner.departureDates = months;
+
+		months = [];
+		for (i=0;i<returnDates.length;i++) {
+			date = returnDates[i];
+			month = date.getMonth();
+			year = date.getFullYear();
+
+			found = false;
+			for (ii=0;ii<months.length;ii++) {
+				if (months[ii].value === year + ' ' + month) {
+					found = true;
+				}
+			}
+			if (!found) {
+				months.push({
+					value: year + ' ' + month,
+					name: monthList[month],
+					dates: []
+				});
+			}
+			for (ii=0;ii<months.length;ii++) {
+				if (months[ii].value === year + ' ' + month) {
+					months[ii].dates.push(date);
+				}
+			}
+		}
+		banner.returnDates = months;
+
+		banner.updatesMonths();
+	};
+	banner.updatesMonths = function() {
+		//var html;
+		//banner.form.inputs.departureMonth.elem.innerHtml = html;
+		banner.log(banner.form.inputs.departureMonth.elem.options);
+
+		//banner.form.inputs.departureMonth.elem.options.length = 1;
+
+		for (var i=0;banner.form.inputs.departureMonth.elem.options.length;i++) {
+			var option = banner.form.inputs.departureMonth.elem.options.length[i];
+		}
+
+		//document.myform.master.options[0]=new Option("Sports", "sportsvalue", true, false)
+
+	};
+	banner.updatesDates = function() {
+
+
+	};
+	banner.generateCalender = function(daysInFuture, length) {
+		var calender = [];
+		for (var i=0;i<=length;i++) {
+			var date = new Date();
+			date.setDate(date.getDate() + i + daysInFuture);
+			calender.push(date);
+		}
+		return calender;
 	};
 /**---------------------------------------
 	Value Change
@@ -305,11 +419,13 @@ window.requestAnimFrame = (function(){
 		banner.updateStates();
 	}, false);
 
+	// Handling for all inputs
 	for (var key in banner.form.inputs) {
 		var input = banner.form.inputs[key];
 		input.elem.addEventListener('change', banner.valuesChange, false);
 	}
 
+	banner.generateDates();
 	banner.updateStates();
 
 })(window, window.document);
