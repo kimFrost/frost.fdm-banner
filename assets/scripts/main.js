@@ -189,10 +189,19 @@ window.requestAnimFrame = (function(){
 		}
 		return dates;
 	};
+	banner.generateCalender = function(daysInFuture, length) {
+		var calender = [];
+		for (var i=0;i<=(length-daysInFuture);i++) {
+			var date = new Date();
+			date.setDate(date.getDate() + i + daysInFuture);
+			calender.push(date);
+		}
+		return calender;
+	};
 	banner.generateDates = function() {
 		// Range 4-365
-		var departureDates = banner.generateCalender(4, 361);
-		var returnDates = banner.generateCalender(6, 363);
+		var departureDates = banner.generateCalender(4, 365);
+		var returnDates = banner.generateCalender(5, 365);
 
 		var monthList = ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'];
 
@@ -200,7 +209,6 @@ window.requestAnimFrame = (function(){
 			date,
 			month,
 			year,
-			index,
 			ii,
 			found,
 			months;
@@ -220,7 +228,7 @@ window.requestAnimFrame = (function(){
 			if (!found) {
 				months.push({
 					value: year + ' ' + month,
-					name: monthList[month],
+					name: monthList[month] + ' ' + year,
 					dates: []
 				});
 			}
@@ -247,7 +255,7 @@ window.requestAnimFrame = (function(){
 			if (!found) {
 				months.push({
 					value: year + ' ' + month,
-					name: monthList[month],
+					name: monthList[month] + ' ' + year,
 					dates: []
 				});
 			}
@@ -262,31 +270,24 @@ window.requestAnimFrame = (function(){
 		banner.updatesMonths();
 	};
 	banner.updatesMonths = function() {
-		//var html;
-		//banner.form.inputs.departureMonth.elem.innerHtml = html;
-		banner.log(banner.form.inputs.departureMonth.elem.options);
-
-		//banner.form.inputs.departureMonth.elem.options.length = 1;
-
-		for (var i=0;banner.form.inputs.departureMonth.elem.options.length;i++) {
-			var option = banner.form.inputs.departureMonth.elem.options.length[i];
+		var i,
+			month;
+		banner.form.inputs.departureMonth.elem.options.length = 1;
+		banner.form.inputs.departureMonth.elem.options.length = banner.departureDates.length + 1;
+		for (i=0;i<banner.departureDates.length;i++) {
+			month = banner.departureDates[i];
+			banner.form.inputs.departureMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
 		}
-
-		//document.myform.master.options[0]=new Option("Sports", "sportsvalue", true, false)
-
+		banner.form.inputs.returnMonth.elem.options.length = 1;
+		banner.form.inputs.returnMonth.elem.options.length = banner.returnDates.length + 1;
+		for (i=0;i<banner.returnDates.length;i++) {
+			month = banner.returnDates[i];
+			banner.form.inputs.returnMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
+		}
 	};
 	banner.updatesDates = function() {
 
 
-	};
-	banner.generateCalender = function(daysInFuture, length) {
-		var calender = [];
-		for (var i=0;i<=length;i++) {
-			var date = new Date();
-			date.setDate(date.getDate() + i + daysInFuture);
-			calender.push(date);
-		}
-		return calender;
 	};
 /**---------------------------------------
 	Value Change
