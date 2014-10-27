@@ -23,7 +23,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				destinationTo: {
@@ -33,7 +33,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				departureMonth: {
@@ -43,7 +43,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				departureDay: {
@@ -63,7 +63,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				returnDay: {
@@ -83,7 +83,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				countChildren: {
@@ -93,7 +93,7 @@ window.requestAnimFrame = (function(){
 					states: {
 						valid: false,
 						disabled: false,
-						changed: false
+						changed: true
 					}
 				},
 				childOneAge: {
@@ -136,6 +136,15 @@ window.requestAnimFrame = (function(){
 						changed: true
 					}
 				},
+				childHeadline: {
+					elem: document.querySelector('#childHeadline'),
+					require: [],
+					states: {
+						valid: false,
+						disabled: true,
+						changed: true
+					}
+				},
 				searchButton: {
 					elem: document.querySelector('#searchButton'),
 					value: null,
@@ -145,7 +154,7 @@ window.requestAnimFrame = (function(){
 						disabled: true,
 						changed: true
 					}
-				}
+				},
 			}
 		},
 		departureDates: [],
@@ -213,12 +222,12 @@ window.requestAnimFrame = (function(){
 			found,
 			months;
 
+		//departureDates
 		months = [];
 		for (i=0;i<departureDates.length;i++) {
 			date = departureDates[i];
 			month = date.getMonth();
 			year = date.getFullYear();
-
 			found = false;
 			for (ii=0;ii<months.length;ii++) {
 				if (months[ii].value === year + ' ' + month) {
@@ -228,7 +237,10 @@ window.requestAnimFrame = (function(){
 			if (!found) {
 				months.push({
 					value: year + ' ' + month,
-					name: monthList[month] + ' ' + year,
+					//name: monthList[month] + ' ' + year,
+					name: monthList[month],
+					month: month,
+					year: year,
 					dates: []
 				});
 			}
@@ -240,12 +252,12 @@ window.requestAnimFrame = (function(){
 		}
 		banner.departureDates = months;
 
+		//returnDates
 		months = [];
 		for (i=0;i<returnDates.length;i++) {
 			date = returnDates[i];
 			month = date.getMonth();
 			year = date.getFullYear();
-
 			found = false;
 			for (ii=0;ii<months.length;ii++) {
 				if (months[ii].value === year + ' ' + month) {
@@ -255,7 +267,10 @@ window.requestAnimFrame = (function(){
 			if (!found) {
 				months.push({
 					value: year + ' ' + month,
-					name: monthList[month] + ' ' + year,
+					//name: monthList[month] + ' ' + year,
+					name: monthList[month],
+					month: month,
+					year: year,
 					dates: []
 				});
 			}
@@ -266,40 +281,159 @@ window.requestAnimFrame = (function(){
 			}
 		}
 		banner.returnDates = months;
-
 		banner.updatesMonths();
 	};
 	banner.updatesMonths = function() {
 		var i,
-			month;
+			month,
+			year,
+			addIndex,
+			yearGroup,
+			option,
+			yearsPast = [];
 		banner.form.inputs.departureMonth.elem.options.length = 1;
-		banner.form.inputs.departureMonth.elem.options.length = banner.departureDates.length + 1;
+		//banner.form.inputs.departureMonth.elem.options.length = banner.departureDates.length + 1;
+		yearsPast = [];
+		addIndex = 1;
 		for (i=0;i<banner.departureDates.length;i++) {
 			month = banner.departureDates[i];
-			banner.form.inputs.departureMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
+			if (yearsPast.indexOf(month.year) === -1) {
+				yearGroup = document.createElement('optgroup');
+				yearGroup.label = month.year;
+				banner.form.inputs.departureMonth.elem.appendChild(yearGroup);
+				yearsPast.push(month.year);
+			}
+			option = document.createElement('option');
+			option.value = month.value;
+			option.appendChild(document.createTextNode(month.name));
+			yearGroup.appendChild(option);
+			//banner.form.inputs.departureMonth.elem.options[i+addIndex] = new Option(month.name, month.value, false, false);
 		}
 		banner.form.inputs.returnMonth.elem.options.length = 1;
-		banner.form.inputs.returnMonth.elem.options.length = banner.returnDates.length + 1;
+		//banner.form.inputs.returnMonth.elem.options.length = banner.returnDates.length + 1;
+		yearsPast = [];
+		addIndex = 1;
 		for (i=0;i<banner.returnDates.length;i++) {
 			month = banner.returnDates[i];
-			banner.form.inputs.returnMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
+			if (yearsPast.indexOf(month.year) === -1) {
+				yearGroup = document.createElement('optgroup');
+				yearGroup.label = month.year;
+				banner.form.inputs.returnMonth.elem.appendChild(yearGroup);
+				yearsPast.push(month.year);
+			}
+			option = document.createElement('option');
+			option.value = month.value;
+			option.appendChild(document.createTextNode(month.name));
+			yearGroup.appendChild(option);
+			//banner.form.inputs.returnMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
 		}
 	};
-	banner.updatesDates = function() {
+	banner.updatesDates = function(departureDates, returnDates) {
+		departureDates = (departureDates === undefined) ? false : departureDates;
+		returnDates = (returnDates === undefined) ? false : returnDates;
+		var i,
+			month,
+			ii,
+			date;
+		if (departureDates) {
+			var departureMonthValue = banner.form.inputs.departureMonth.value;
+			for (i=0;i<banner.departureDates.length;i++) {
+				month = banner.departureDates[i];
+				if (month.value === departureMonthValue) {
+					banner.form.inputs.departureDay.elem.options.length = (month.dates.length + 1);
+					for (ii=0;ii<month.dates.length;ii++) {
+						date = month.dates[ii];
+						banner.form.inputs.departureDay.elem.options[ii+1] = new Option(date.getDate(), date, false, false);
+					}
+					break;
+				}
+			}
+		}
+		if (returnDates) {
+			var returnMonthValue = banner.form.inputs.returnMonth.value;
+			for (i=0;i<banner.returnDates.length;i++) {
+				month = banner.returnDates[i];
+				if (month.value === returnMonthValue) {
+					banner.form.inputs.returnDay.elem.options.length = (month.dates.length + 1);
+					for (ii=0;ii<month.dates.length;ii++) {
+						date = month.dates[ii];
+						banner.form.inputs.returnDay.elem.options[ii+1] = new Option(date.getDate(), date, false, false);
+					}
+					break;
+				}
+			}
+		}
+	};
+	banner.yyyymmdd = function(date) {
+		date = new Date(date);
+		var yyyy = date.getFullYear().toString();
+		var mm = (date.getMonth()+1).toString(); // getMonth() is zero-based
+		var dd  = date.getDate().toString();
+		return yyyy + (mm[1]?mm:'0'+mm[0]) + (dd[1]?dd:'0'+dd[0]); // padding
+	};
+/**---------------------------------------
+	Search Submit
+---------------------------------------**/
+	banner.encodeQueryData = function(data) {
+		var ret = [];
+		for (var d in data) {
+			ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+		}
+		return ret.join('&');
+	};
+	banner.searchSubmit = function() {
+		var data = {};
+		data.searchtype = 1;
+		data.departurecity = banner.form.inputs.destinationFrom.value;
+		data.arriveat = banner.form.inputs.destinationTo.value;
+		data.departuredate = banner.yyyymmdd(banner.form.inputs.departureDay.value);
+		data.returndate = banner.yyyymmdd(banner.form.inputs.returnDay.value);
 
+		var queryString = banner.encodeQueryData(data);
 
+		queryString = queryString + '&paxcombination=' + banner.form.inputs.countAdults.value + 'ADT' + ',' + banner.form.inputs.countChildren.value + 'CHD';
+		if (banner.form.inputs.countChildren.value > 0) {
+			queryString = queryString + '&roomchildage=' + (function(){
+				var result = '';
+				var i;
+				for (i=0;i<parseInt(banner.form.inputs.countChildren.value); i++) {
+					//result = result + '2,';
+					switch(i) {
+						case 0:
+							result = result + banner.form.inputs.childOneAge.value + ',';
+							break;
+						case 1:
+							result = result + banner.form.inputs.childTwoAge.value + ',';
+							break;
+						case 2:
+							result = result + banner.form.inputs.childThreeAge.value + ',';
+							break;
+						case 3:
+							result = result + banner.form.inputs.childFourAge.value + ',';
+							break;
+					}
+				}
+				return result;
+			})();
+		}
+		var url = 'http://rejser.fdm-travel.dk/soeger?' + queryString;
+		window.open(url,'_blank');
 	};
 /**---------------------------------------
 	Value Change
 ---------------------------------------**/
 	banner.valuesChange = function(event) {
-		//banner.log('event', event);
 		var id = event.target.id;
 		var pointer = banner.form.inputs[id];
 		pointer.value = event.target.value;
 		pointer.states.changed = true;
-		banner.log('pointer', pointer);
 		banner.updateStates();
+	};
+	banner.updateModelValues = function() {
+		for (var key in banner.form.inputs) {
+			input = banner.form.inputs[key];
+			input.value = input.elem.value;
+		}
 	};
 /**---------------------------------------
 	Update States
@@ -386,6 +520,7 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = true;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.childHeadline.states.disabled = true;
 				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay'];
 				break;
 			case 1:
@@ -393,6 +528,7 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = true;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.childHeadline.states.disabled = false;
 				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge'];
 				break;
 			case 2:
@@ -400,6 +536,7 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = true;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.childHeadline.states.disabled = false;
 				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge'];
 				break;
 			case 3:
@@ -407,6 +544,7 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = false;
 				banner.form.inputs.childFourAge.states.disabled = true;
+				banner.form.inputs.childHeadline.states.disabled = false;
 				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge'];
 				break;
 			case 4:
@@ -414,11 +552,13 @@ window.requestAnimFrame = (function(){
 				banner.form.inputs.childTwoAge.states.disabled = false;
 				banner.form.inputs.childThreeAge.states.disabled = false;
 				banner.form.inputs.childFourAge.states.disabled = false;
+				banner.form.inputs.childHeadline.states.disabled = false;
 				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge', 'childFourAge'];
 				break;
 		}
 		banner.updateStates();
 	}, false);
+
 
 	// Handling for all inputs
 	for (var key in banner.form.inputs) {
@@ -426,7 +566,24 @@ window.requestAnimFrame = (function(){
 		input.elem.addEventListener('change', banner.valuesChange, false);
 	}
 
+
+	// Special handling for dates on month change
+	banner.form.inputs.departureMonth.elem.addEventListener('change', function(event) {
+		banner.updatesDates(true, false);
+	});
+	banner.form.inputs.returnMonth.elem.addEventListener('change', function(event) {
+		banner.updatesDates(false, true);
+	});
+
+	// Handle search event
+	banner.form.inputs.searchButton.elem.addEventListener('click', function(event) {
+		if (!banner.form.inputs.searchButton.states.disabled) {
+			banner.searchSubmit();
+		}
+	});
+
 	banner.generateDates();
+	banner.updateModelValues();
 	banner.updateStates();
 
 })(window, window.document);

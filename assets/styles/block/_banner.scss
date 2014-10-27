@@ -16,7 +16,8 @@
 .banner__fps,
 .banner__content,
 .banner__veil,
-.banner__logo {
+.banner__logo,
+.banner__attachment {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -66,6 +67,16 @@
 
 }
 
+.banner__attachment {
+	display: block;
+	position: absolute;
+	top: - 100%;
+	left: 0;
+	&[disabled] {
+		display: none;
+	}
+}
+
 // Modifiers
 
 .banner__veil--hide {
@@ -86,10 +97,17 @@
 
 .banner--728x90 {
 	.banner__content {
-
+		padding: 20px 26px 17px 26px;
 	}
 	.banner__logo {
-		min-height: 50px;
+		min-height: 52px;
+	}
+	// This is not allowed
+	.form__label {
+		line-height: 22px;
+	}
+	.form__inputshared {
+		height: 22px;
 	}
 }
 
