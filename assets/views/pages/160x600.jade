@@ -9,5 +9,64 @@ block append globalVars
 
 block append content
 
-	div.banner__devinfo 160x600
-	include ../blocks/dev_banner_content
+	//div.banner__devinfo 160x600
+
+	form.form.banner__content.form--theme3(name="bannerForm")
+		div.grid--48.banner__logo
+
+		div.grid--48
+			include ../blocks/select_destination_from
+
+		div.grid__wedge.grid__wedge--size2
+
+		div.grid--48
+			include ../blocks/select_destination_to
+
+		div.grid__wedge.grid__wedge--size11
+
+		div.grid--48
+			div.banner__attachment
+				div.form__label Udrejsedato:
+			div.grid--24.grid--spaceright
+				include ../blocks/select_departure_month
+			div.grid--24
+				include ../blocks/select_departure_day
+
+		div.grid__wedge.grid__wedge--size11
+
+		div.grid--48
+			div.banner__attachment
+				div.form__label Hjemrejsedato:
+			div.grid--24.grid--spaceright
+				include ../blocks/select_return_month
+			div.grid--24
+				include ../blocks/select_return_day
+
+		div.grid__wedge.grid__wedge--size2
+
+		div.grid--48
+			include ../blocks/select_count_adults
+
+		div.grid__wedge.grid__wedge--size2
+
+		div.grid--48
+			include ../blocks/select_count_children
+
+		div.grid__wedge.grid__wedge--size11
+
+		div.grid--48
+			div#childHeadline.banner__attachment
+				div.form__label Alder på børn:
+			div.grid--12.grid--spaceright
+				include ../blocks/select_child_one_age
+			div.grid--12.grid--spaceright
+				include ../blocks/select_child_two_age
+			div.grid--12.grid--spaceright
+				include ../blocks/select_child_three_age
+			div.grid--12
+				include ../blocks/select_child_four_age
+
+		div.grid__wedge.grid__wedge--size2
+
+		div.grid--48
+			input.form__button(type="button", value="Søg rejse", id="searchButton")

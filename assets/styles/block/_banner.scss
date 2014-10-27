@@ -5,7 +5,9 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-	background-color: $color_sandy;
+	//background-color: $color_sandy;
+	background-repeat: no-repeat;
+	background-position: left top;
 	color: $color_textDark;
 	font-family: Arial, sans-serif;
 	overflow: hidden;
@@ -70,7 +72,7 @@
 .banner__attachment {
 	display: block;
 	position: absolute;
-	top: - 100%;
+	top: - 85%;
 	left: 0;
 	&[disabled] {
 		display: none;
@@ -86,6 +88,7 @@
 
 // Banner sizes
 .banner--930x180 {
+	background-image: url('../images/930x180.jpg');
 	.banner__content {
 		padding: 53px 50px 47px 50px;
 	}
@@ -96,54 +99,56 @@
 }
 
 .banner--728x90 {
+	background-image: url('../images/728x90.jpg');
 	.banner__content {
 		padding: 20px 26px 17px 26px;
 	}
 	.banner__logo {
 		min-height: 52px;
 	}
-	// This is not allowed
-	.form__label {
-		line-height: 22px;
-	}
-	.form__inputshared {
-		height: 22px;
-	}
 }
 
 .banner--500x500 {
+	background-image: url('../images/500x500.jpg');
 	.banner__content {
-
+		padding: 41px 30px 41px 30px;
 	}
 	.banner__logo {
-		min-height: 50px;
+		min-height: 80px;
+		margin-bottom: 100px;
 	}
 }
 
 .banner--336x280 {
+	background-image: url('../images/336x280.jpg');
 	.banner__content {
-
+		padding: 28px 24px 28px 32px;
 	}
 	.banner__logo {
-		min-height: 50px;
+		min-height: 52px;
+		margin-bottom: 28px;
 	}
 }
 
 .banner--300x250 {
+	background-image: url('../images/300x250.jpg');
 	.banner__content {
-
+		padding: 9px 11px 9px 11px;
 	}
 	.banner__logo {
-		min-height: 50px;
+		min-height: 52px;
+		margin-bottom: 27px;
 	}
 }
 
 .banner--160x600 {
+	background-image: url('../images/160x600.jpg');
 	.banner__content {
-
+		padding: 32px 6px 10px 6px;
 	}
 	.banner__logo {
-		min-height: 50px;
+		min-height: 77px;
+		margin-bottom: 40px;
 	}
 }
 

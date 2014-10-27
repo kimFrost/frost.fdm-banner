@@ -1,0 +1,70 @@
+extends ../master_banner
+
+block append head
+
+block append body
+
+block append globalVars
+	- bannerClasses += " banner--336x280";
+
+block append content
+
+	//div.banner__devinfo 336x280
+
+	form.form.banner__content.form--theme2(name="bannerForm")
+		div.grid--48.banner__logo
+
+		div.grid--48
+			div.grid--24
+				include ../blocks/select_destination_from
+			div.grid--1
+			div.grid--23
+				include ../blocks/select_destination_to
+
+		div.grid__wedge.grid__wedge--size4
+
+		div.grid--48
+			div.grid--24
+				div.banner__attachment
+					div.form__label Udrejse:
+				div.grid--24.grid--spaceright
+					include ../blocks/select_departure_month
+				div.grid--24
+					include ../blocks/select_departure_day
+			div.grid--1
+			div.grid--23
+				div.banner__attachment
+					div.form__label Hjemrejse:
+				div.grid--24.grid--spaceright
+					include ../blocks/select_return_month
+				div.grid--24
+					include ../blocks/select_return_day
+
+		div.grid__wedge.grid__wedge--size4
+
+		div.grid--48
+			div.grid--24
+				div.grid--24.grid--spaceright
+					include ../blocks/select_count_adults
+				div.grid--24
+					include ../blocks/select_count_children
+			div.grid--1
+			div.grid--23
+				div#childHeadline.banner__attachment
+					div.form__label Alder børn:
+				div.grid--12.grid--spaceright
+					include ../blocks/select_child_one_age
+				div.grid--12.grid--spaceright
+					include ../blocks/select_child_two_age
+				div.grid--12.grid--spaceright
+					include ../blocks/select_child_three_age
+				div.grid--12
+					include ../blocks/select_child_four_age
+
+		div.grid__wedge.grid__wedge--size2
+
+		div.grid--48
+			div.grid--24
+			div.grid--1
+			div.grid--23
+				input.form__button(type="button", value="Søg rejse", id="searchButton")

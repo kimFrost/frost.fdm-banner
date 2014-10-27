@@ -1,6 +1,5 @@
 div.form__select.form__select--narrow
 	select(name="childThreeAge", id="childThreeAge")
 		option.form__option(value="") -
-		option.form__option(value="1") 1
-		option.form__option(value="2") 2
-		option.form__option(value="3") 3
+		- for (var i=0;i<18;i++)
+			option.form__option(value="#{i}") #{i}
