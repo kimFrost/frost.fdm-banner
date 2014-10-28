@@ -6,7 +6,7 @@ $__gridSize: 48;
 $__gridSpacing: 2px;
 
 .grid,
-[class^=grid--] {
+[class*=grid--] {
 	float: left;
 	min-height: 1px;
 	position: relative;
@@ -15,7 +15,7 @@ $__gridSpacing: 2px;
 
 
 .grid,
-[class^=grid--],
+[class*=grid--],
 .grid__wedge {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
