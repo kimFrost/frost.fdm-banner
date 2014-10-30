@@ -141,8 +141,11 @@ $formInputHeight: 36px;
 .form--theme1 {
 	font-size: 13px;
 	.form__label {
-		font-size: 13px;
+		font-size: 14px;
 		font-weight: bold;
+	}
+	.form__button {
+		font-size: 18px;
 	}
 }
 
@@ -161,14 +164,17 @@ $formInputHeight: 36px;
 	}
 	.form__select {
 		background-size: auto 50%;
-
+	}
+	.form__button {
+		font-size: 14px;
+		letter-spacing: 0px;
 	}
 }
 
 .form--theme3 {
 	font-size: 12px;
 	.form__label {
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: bold;
 		line-height: 22px;
 	}
@@ -178,6 +184,9 @@ $formInputHeight: 36px;
 	}
 	.form__select {
 		background-size: auto 50%;
+	}
+	.form__button {
+		font-size: 14px;
 	}
 }
 

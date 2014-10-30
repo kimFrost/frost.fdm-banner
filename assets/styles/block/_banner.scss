@@ -150,6 +150,18 @@
 		min-height: 77px;
 		margin-bottom: 40px;
 	}
+	.banner__attachment {
+		&[disabled] {
+			display: block;
+			opacity: 0.4;
+		}
+	}
+	// Ugly
+	.form__select--narrow {
+		&[disabled] {
+			opacity: 0.4;
+		}
+	}
 }
 
 .banner--120x600 {
