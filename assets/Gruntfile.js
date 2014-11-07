@@ -361,7 +361,7 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('sync', [
-    'clean:deploy',
+    //'clean:deploy',
     'wiredep',
     'autoprefixer',
 	'compass:debug',

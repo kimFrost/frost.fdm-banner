@@ -1,0 +1,11 @@
+{
+	"version": "1.0",
+
+	"title": "728x90 FDM Banner",
+	"description": "FDM Banner",
+
+	"width" : "728",
+	"height": "90",
+
+	"source": "728x90.html"
+}

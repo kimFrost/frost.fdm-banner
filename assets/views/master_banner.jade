@@ -1,32 +1,20 @@
 doctype html
-html(data-ng-app="fdm-banner", lang="da")
+html(lang="da")
 	head
-		title Banner
+		title FDM Travel
 		meta(charset="UTF-8")
-		//meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
 		meta(name="viewport", content="width=device-width, initial-scale=1")
-		link(rel='stylesheet', href='./css/main.css')
-		// Main app js
-		//script(src='./assets/scripts/libs/aegis-0.0.1.js')
-		//script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js')
-		//script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+		link(rel='stylesheet', href='./css/main.min.css')
 		block head
 
 	body
 		block body
 		block globalVars
 			- var bannerClasses = "banner";
-		//section.banner(data-aegis-class="{'banner--ready':states.somState}")
+
 		section(class="#{bannerClasses}", data-ng-controller="bannerCtrl as banner")
 			div.banner__fps(data-ng-bind="banner.fps")
-			//div.banner__veil(data-ng-class="{'banner__veil--hide': banner.states.hideVeil}")
-
-
 
 			block content
 
-		//script(src='./assets/scripts/main__aegis.js')
-		//script(src='./assets/scripts/main.js')
-		script(src='./scripts/main.js')
-		//script(src="/assets/scripts/app.js")
-		//script(src="/assets/scripts/controllers/banner.controller.js")
+		script(src='./scripts/main.min.js')

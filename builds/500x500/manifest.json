@@ -1,0 +1,11 @@
+{
+	"version": "1.0",
+
+	"title": "500x500 FDM Banner",
+	"description": "FDM Banner",
+
+	"width" : "500",
+	"height": "500",
+
+	"source": "500x500.html"
+}
