@@ -1,0 +1,58 @@
+
+
+// PARAMETERS
+
+
+// BLOCK
+.arrow {
+  @include transform-origin(0%, 0%);
+  @include transform(rotate(-45deg) scale(1, 1));
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid $color_black;
+  border-left: 2px solid $color_black;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  &:focus,
+  &:hover {
+
+  }
+  &:active {
+
+  }
+}
+
+.arrow {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.arrow--right {
+  @include transform-origin(100%, 0%);
+  @include transform(rotate(45deg) scale(1, 1));
+  left: auto;
+  right: 15px;
+  border-left: none;
+  border-right: 2px solid $color_black;
+}
+
+.arrow--white {
+  border-color: $color_white;
+  border-width: 1px;
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+
+
+//--- KEYFRAME ANIMATIONS ----------------------------------------------------------//

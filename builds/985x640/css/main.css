@@ -1,0 +1,907 @@
+/* Sprite Setup */
+/* Global Variables */
+/* Global mediaQueries mixin */
+/* Global font type */
+/* Global font Calculation */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/global\/_global_fonts\.scss}line{font-family:\0000395}}
+html {
+  font-size: 112.5% !important;
+}
+
+/* OLD */
+/* Extend List */
+/* Global colorset loop */
+/* Global List Functions */
+/* Global Mixins */
+/**-------- removeMapItemByName --------**/
+/**-------- constructSelector --------**/
+/**-------- block --------**/
+/**-------- element --------**/
+/**-------- modifier --------**/
+/**-------- checkExtender --------**/
+/**-------- enableExtendMode --------**/
+/**-------- disableExtendMode --------**/
+/**-------- eEx --------**/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\000032}}
+.banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: left top;
+  color: #2D2D2D;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/global\/_global_fonts\.scss}line{font-family:\0000357}}
+.banner {
+  font-size: 14px;
+  font-size: 0.7777777778rem;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000316}}
+.banner,
+.banner__devinfo,
+.banner__fps {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000324}}
+.banner__devinfo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000330}}
+.banner__fps {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000339}}
+.banner__veil--hide {
+  -moz-transform: translate(0%, 0%) rotate(90deg);
+  -ms-transform: translate(0%, 0%) rotate(90deg);
+  -webkit-transform: translate(0%, 0%) rotate(90deg);
+  transform: translate(0%, 0%) rotate(90deg);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000346}}
+.banner--160x600 {
+  background-color: red;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_banner\.scss}line{font-family:\0000350}}
+.banner--985x640 {
+  background-color: red;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\000035}}
+.form {
+  display: block;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000310}}
+.form,
+.form__inputshared,
+.form__input,
+.form__button,
+.form__select,
+.form__select > select,
+.form__input,
+.form__button,
+.form__select,
+.form__option,
+.form__label {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000322}}
+.form__inputshared, .form__input, .form__button, .form__select, .form__select > select {
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  /* .background-clip(padding-box);*/
+  display: block;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  padding: 0px 15px 0 5px;
+  width: 100%;
+  border: 1px solid #D1CBBD;
+  margin: 0;
+  height: 36px;
+  background-color: #fff;
+  outline: none;
+  vertical-align: middle;
+  z-index: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000340}}
+.form__inputshared[disabled="disabled"], [disabled="disabled"].form__input, [disabled="disabled"].form__button, [disabled="disabled"].form__select, .form__select > select[disabled="disabled"] {
+  opacity: 0.6;
+  cursor: default;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000345}}
+.form__inputshared.ng-dirty.ng-invalid, .ng-dirty.ng-invalid.form__input, .ng-dirty.ng-invalid.form__button, .ng-dirty.ng-invalid.form__select, .form__select > select.ng-dirty.ng-invalid {
+  border-color: #b73f2b;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000356}}
+.form__input + .form__input {
+  margin-top: 2px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000361}}
+.form__button {
+  background-color: #D96127;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000370}}
+.form__button:hover {
+  background-color: #e18152;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000373}}
+.form__button:active {
+  background-color: #c45722;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000377}}
+.form__button[disabled="disabled"]:hover, .form__button[disabled="disabled"]:active {
+  background-color: #D96127;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000384}}
+.form__select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("../images/dropdown_arrow.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: relative;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\0000392}}
+.form__select > select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: inherit;
+  padding-right: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003106}}
+.form__select > select::-ms-expand {
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003110}}
+.form__select::-ms-expand {
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003113}}
+.form__select:after {
+  content: "";
+  display: none;
+  background-image: url("../images/dropdown_arrow.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: inherit;
+  width: 19px;
+  height: 100%;
+  z-index: 50;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003131}}
+.form__label {
+  line-height: 36px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003141}}
+.form--theme1 {
+  font-size: 13px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003143}}
+.form--theme1 .form__label {
+  font-size: 14px;
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003147}}
+.form--theme1 .form__button {
+  font-size: 18px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003152}}
+.form--theme2 {
+  letter-spacing: -1px;
+  font-size: 12px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003157}}
+.form--theme2 .form__label {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 22px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003162}}
+.form--theme2 .form__inputshared, .form--theme2 .form__input, .form--theme2 .form__button, .form--theme2 .form__select, .form--theme2 .form__select > select {
+  height: 22px;
+  padding-left: 1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003166}}
+.form--theme2 .form__select {
+  background-size: auto 50%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003169}}
+.form--theme2 .form__button {
+  font-size: 14px;
+  letter-spacing: 0px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003175}}
+.form--theme3 {
+  font-size: 12px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003177}}
+.form--theme3 .form__label {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 22px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003182}}
+.form--theme3 .form__inputshared, .form--theme3 .form__input, .form--theme3 .form__button, .form--theme3 .form__select, .form--theme3 .form__select > select {
+  height: 22px;
+  padding-left: 2px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003186}}
+.form--theme3 .form__select {
+  background-size: auto 50%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003189}}
+.form--theme3 .form__button {
+  font-size: 14px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003194}}
+.form__select--narrow {
+  padding-left: 2px;
+  padding-right: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003197}}
+.form__select--narrow[disabled="disabled"] {
+  opacity: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003200}}
+.form__select--narrow:after {
+  z-index: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_form\.scss}line{font-family:\00003205}}
+.form__select--hidden {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  top: -2px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Grid
+---------------------------------------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\000038}}
+.grid,
+[class*=grid--] {
+  float: left;
+  min-height: 1px;
+  position: relative;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000317}}
+.grid,
+[class*=grid--],
+.grid__wedge {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000327}}
+.grid__wedge {
+  display: block;
+  float: left;
+  clear: left;
+  width: 100%;
+  position: relative;
+  height: 8px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000338}}
+.grid--spaceright {
+  padding-right: 2px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000350}}
+.grid--spaceleft {
+  padding-left: 2px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000362}}
+.grid--spacebottom {
+  margin-bottom: 2px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000366}}
+.grid--spacetop {
+  margin-top: 2px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000370}}
+.grid--alignright {
+  text-align: right;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000374}}
+.grid--aligncenter {
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--1 {
+  width: 2.0833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--2 {
+  width: 4.1666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--3 {
+  width: 6.25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--4 {
+  width: 8.3333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--5 {
+  width: 10.4166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--6 {
+  width: 12.5%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--7 {
+  width: 14.5833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--8 {
+  width: 16.6666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--9 {
+  width: 18.75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--10 {
+  width: 20.8333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--11 {
+  width: 22.9166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--12 {
+  width: 25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--13 {
+  width: 27.0833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--14 {
+  width: 29.1666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--15 {
+  width: 31.25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--16 {
+  width: 33.3333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--17 {
+  width: 35.4166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--18 {
+  width: 37.5%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--19 {
+  width: 39.5833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--20 {
+  width: 41.6666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--21 {
+  width: 43.75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--22 {
+  width: 45.8333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--23 {
+  width: 47.9166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--24 {
+  width: 50%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--25 {
+  width: 52.0833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--26 {
+  width: 54.1666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--27 {
+  width: 56.25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--28 {
+  width: 58.3333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--29 {
+  width: 60.4166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--30 {
+  width: 62.5%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--31 {
+  width: 64.5833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--32 {
+  width: 66.6666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--33 {
+  width: 68.75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--34 {
+  width: 70.8333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--35 {
+  width: 72.9166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--36 {
+  width: 75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--37 {
+  width: 77.0833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--38 {
+  width: 79.1666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--39 {
+  width: 81.25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--40 {
+  width: 83.3333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--41 {
+  width: 85.4166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--42 {
+  width: 87.5%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--43 {
+  width: 89.5833333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--44 {
+  width: 91.6666666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--45 {
+  width: 93.75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--46 {
+  width: 95.8333333333%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--47 {
+  width: 97.9166666667%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000379}}
+.grid--48 {
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000384}}
+.grid__wedge--size2 {
+  height: 12px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000388}}
+.grid__wedge--size3 {
+  height: 16px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000392}}
+.grid__wedge--size4 {
+  height: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\0000396}}
+.grid__wedge--size5 {
+  height: 24px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003100}}
+.grid__wedge--size6 {
+  height: 28px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003104}}
+.grid__wedge--size7 {
+  height: 32px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003108}}
+.grid__wedge--size8 {
+  height: 36px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003112}}
+.grid__wedge--size9 {
+  height: 40px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003116}}
+.grid__wedge--size10 {
+  height: 44px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003120}}
+.grid__wedge--size11 {
+  height: 48px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/block\/_grid\.scss}line{font-family:\00003124}}
+.grid__wedge--size12 {
+  height: 52px;
+}
+
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\000035}}
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000313}}
+body {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000318}}
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000323}}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000328}}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000337}}
+img {
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000341}}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000347}}
+textarea {
+  resize: vertical;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000351}}
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\0000396}}
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003103}}
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003110}}
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003115}}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003126}}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003136}}
+.invisible {
+  visibility: hidden;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003140}}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003146}}
+.clearfix:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003150}}
+.clearfix {
+  *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+@media print {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003159}}
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003166}}
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003171}}
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003175}}
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003183}}
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003189}}
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003195}}
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003199}}
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003204}}
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003212}}
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_boilerplate\.scss}line{font-family:\00003219}}
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_pollutions\.scss}line{font-family:\000031}}
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.skoringen\/assets\/styles\/vendor\/_vendor_pollutions\.scss}line{font-family:\000035}}
+a {
+  color: inherit;
+}
+
+/*# sourceMappingURL=main.css.map */

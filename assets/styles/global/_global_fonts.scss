@@ -1,20 +1,6 @@
 
-/* Global font type */
 
-$font_basic: "Myriad Pro", "Arial", Sans-serif;
-
-$font_HelveticaNeueLight: 'HelveticaNeueW02-45Ligh' $font_basic;
-$font_HelveticaNeueHeavy: 'HelveticaNeueW01-85Heav' $font_basic;
-$font_HelveticaNeueMedium: 'HelveticaNeueW01-65Medi' $font_basic;
-$font_CalvertBold: 'Calvert MT W01 Bold' $font_basic;
-$font_CalvertLight: 'Calvert MT W01 Light' $font_basic;
-$font_CalvertNormal: 'Calvert MT W01' $font_basic;
-
-$font_OmnesPro: "omnes-pro",sans-serif;
-//$font_OmnesWebdings: "Omnes Webdings", sans-serif;
-
-
-/* Global font Calculation */ 
+/* Global font Calculation */
 // Based on typeplate
 
 $line-height: 1.65;
@@ -30,7 +16,7 @@ $gamma: 14;
 $jimmi: 15;
 $delta: 16;
 $epsilon: 18;
-$zeta: 21;
+$zeta: 20;
 $eta: 24;
 $theta: 32;
 $iota: 48;
@@ -94,12 +80,12 @@ $fontsizes: alpha $alpha, beta $beta, gamma $gamma, jimmi $jimmi, delta $delta, 
 // Set base font size, from which all will scale
 html {
 	font-size: percentage($font-size / 100) !important;
-	@include mediaQueries(tablet){
+	//@include mediaQueries(tablet){
 		//font-size: percentage($font-size / 100) * 0.9 !important;
-	}
-	@include mediaQueries(mobile){
+	//}
+	//@include mediaQueries(mobile){
 		//font-size: percentage($font-size / 100) * 0.75 !important;
-	}
+  //}
 }
 
 //@extend %alpha;

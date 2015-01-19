@@ -1,20 +1,23 @@
 doctype html
 html(lang="da")
-	head
-		title FDM Travel
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1")
-		link(rel='stylesheet', href='./css/main.min.css')
-		block head
+  head
+    title FDM Travel
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='./css/main.css')
+    block head
 
-	body
-		block body
-		block globalVars
-			- var bannerClasses = "banner";
+    script(src='http://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js')
 
-		section(class="#{bannerClasses}", data-ng-controller="bannerCtrl as banner")
-			div.banner__fps(data-ng-bind="banner.fps")
+  body
+    block body
+    block globalVars
+      - var bannerClasses = "banner";
 
-			block content
+    section(class="#{bannerClasses}", data-ng-controller="bannerCtrl as banner")
+      div.banner__fps(data-ng-bind="banner.fps")
 
-		script(src='./scripts/main.min.js')
+      block content
+
+
+    //script(src='./scripts/main.js')

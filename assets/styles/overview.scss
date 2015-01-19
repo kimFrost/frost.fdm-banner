@@ -1,19 +1,19 @@
 // -------------------------------------------------------------------------
 // Configuratios, imports & modules
 // -------------------------------------------------------------------------
-		
+
 @import "compass";
 
 /* Sprite Setup */
-$spr-layout:smart; 
+$spr-layout:smart;
 
 //@import "icons/*.png";
 //@import "util/*.png";
-   
+
 
 // -------------------------------------------------------------------------
 // Variables
-// ------------------------------------------------------------------------- 
+// -------------------------------------------------------------------------
 
 
 // -------------------------------------------------------------------------
@@ -21,14 +21,10 @@ $spr-layout:smart;
 // -------------------------------------------------------------------------
 
 // Global
-@import "global/_global_variables";
 @import "global/_global_mediaqueries";
+@import "global/_global_variables";
 @import "global/_global_fonts";
-@import "global/_global_extendlist";
-@import "global/_global_themes";
-@import "global/_global_listfunctions";
 @import "global/_global_mixins";
-@import "global/_global_blockconstructor";
 
 // Block
 @import "block/_overview";
