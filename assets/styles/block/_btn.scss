@@ -15,6 +15,7 @@
   font-family: $font_nillandExtraBold;
   color: $color_white;
   background-color: $color_purple;
+  text-decoration: none;
   &:focus,
   &:hover {
     background-color: mix($color_purple, $color_white, 70%);

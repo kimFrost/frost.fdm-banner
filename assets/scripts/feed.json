@@ -1,0 +1,75 @@
+{
+  "name": "Skoringen",
+  "categories": [
+    {
+      "id": "women",
+      "name": "Damesko"
+    },
+    {
+      "id": "men",
+      "name": "Herresko"
+    },
+    {
+      "id": "children",
+      "name": "Børnesko"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Sko 1",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "10%",
+      "price": "199,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 199,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p2",
+      "name": "Sko 2",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "20%",
+      "price": "299,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 299,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p3",
+      "name": "Sko 3",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "30%",
+      "price": "399,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 399,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p4",
+      "name": "Sko 4",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "40%",
+      "price": "499,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 499,-",
+      "href": "http://google.dk"
+    }
+  ]
+}

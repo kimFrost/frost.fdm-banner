@@ -9,8 +9,8 @@ div.banner__160x600
     div.banner__footerlogo
 
 div.banner__930x600
-  div.arrow
-  div.arrow.arrow--right
+  div.arrow(onclick="window.banner.switchSlide(-1)")
+  div.arrow.arrow--right(onclick="window.banner.switchSlide(1)")
   div.banner__logo
   div.banner__splash
     div.splash
@@ -21,23 +21,24 @@ div.banner__930x600
     div.banner__category
       div.checker
         div.checker__box
-          input(type="checkbox")
+          input(type="checkbox", checked="checked")
           div.checker__ui
         div.checker__text Damesko
     div.banner__category
       div.checker
         div.checker__box
-          input(type="checkbox")
+          input(type="checkbox", checked="checked")
           div.checker__ui
         div.checker__text Herresko
     div.banner__category
       div.checker
         div.checker__box
-          input(type="checkbox")
+          input(type="checkbox", checked="checked")
           div.checker__ui
         div.checker__text Børnesko
-  div.banner__productimage
-    img(src="http://placehold.it/425x340")
+
+  div.banner__slides
+
   div.banner__productinfo
     div.rte
       img(src="http://placehold.it/130x21")
@@ -51,15 +52,5 @@ div.banner__930x600
   div.banner__footer
     div.banner__footerlogo
     div.banner__thumbs
-      div.arrow.arrow--white
-      div.arrow.arrow--right.arrow--white
-      div.banner__thumb
-        img(src="http://placehold.it/80x60")
-      div.banner__thumb
-        img(src="http://placehold.it/80x60")
-      div.banner__thumb
-        img(src="http://placehold.it/80x60")
-      div.banner__thumb
-        img(src="http://placehold.it/80x60")
-      div.banner__thumb
-        img(src="http://placehold.it/80x60")
+      div.arrow.arrow--white(onclick="window.banner.switchThumb(-1)")
+      div.arrow.arrow--right.arrow--white(onclick="window.banner.switchThumb(1)")

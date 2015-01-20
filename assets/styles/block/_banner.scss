@@ -111,11 +111,32 @@ $_banner_height: 600px;
   }
 }
 
-.banner__productimage {
+.banner__slides {
   display: block;
   position: absolute;
   left: calc(50% - (425px * 0.4));
   top: 120px;
+  height: 340px;
+  width: 425px;
+}
+
+.banner__productimage {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  & > img,
+  & > a > img {
+    display: block;
+    margin: 0;
+    outline: 0;
+  }
+  & > a {
+    display: block;
+  }
 }
 
 .banner__productinfo {
@@ -133,19 +154,53 @@ $_banner_height: 600px;
   top: 10px;
   padding-left: 40px;
   padding-right: 40px;
+  width: 520px;
+  height: 60px;
+  overflow: hidden;
+
 }
 
 .banner__thumb {
-  float: left;
+  @include translate(-100px, -100px);
   background-color: $color_white;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 40px;
   & + & {
-    margin-left: 10px;
+    //margin-left: 10px;
   }
 }
 
 //--- MODIFIERS ----------------------------------------------------------//
 
+.banner__productimage--active {
+  opacity: 1;
+}
 
+.banner__thumb--active {
+  @include box-shadow(0 0 5px 10px rgba($color_white, 0.6));
+}
+
+.banner__thumb--pos0 {
+  @include translate(0, 0);
+}
+
+.banner__thumb--pos1 {
+  @include translate(90px, 0);
+}
+
+.banner__thumb--pos2 {
+  @include translate(180px, 0);
+}
+
+.banner__thumb--pos3 {
+  @include translate(270px, 0);
+}
+
+.banner__thumb--pos4 {
+  @include translate(360px, 0);
+}
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 

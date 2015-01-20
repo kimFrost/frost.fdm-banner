@@ -13,158 +13,32 @@ window.requestAnimFrame = (function(){
 ;(function(window, document, undefined) {
 
 	var banner = {
-		form: {
-			elem:  document.querySelector('form'),
-			inputs: {
-				destinationFrom: {
-					elem: document.querySelector('#destinationFrom'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				destinationTo: {
-					elem: document.querySelector('#destinationTo'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				departureMonth: {
-					elem: document.querySelector('#departureMonth'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				departureDay: {
-					elem: document.querySelector('#departureDay'),
-					value: null,
-					require: ['departureMonth'],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				returnMonth: {
-					elem: document.querySelector('#returnMonth'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				returnDay: {
-					elem: document.querySelector('#returnDay'),
-					value: null,
-					require: ['returnMonth'],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				countAdults: {
-					elem: document.querySelector('#countAdults'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				countChildren: {
-					elem: document.querySelector('#countChildren'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: false,
-						changed: true
-					}
-				},
-				childOneAge: {
-					elem: document.querySelector('#childOneAge'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				childTwoAge: {
-					elem: document.querySelector('#childTwoAge'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				childThreeAge: {
-					elem: document.querySelector('#childThreeAge'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				childFourAge: {
-					elem: document.querySelector('#childFourAge'),
-					value: null,
-					require: [],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				childHeadline: {
-					elem: document.querySelector('#childHeadline'),
-					require: [],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-				searchButton: {
-					elem: document.querySelector('#searchButton'),
-					value: null,
-					require: ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay'],
-					states: {
-						valid: false,
-						disabled: true,
-						changed: true
-					}
-				},
-			}
-		},
-		departureDates: [],
-		departureMonth: [],
-		returnDates: [],
-		returnMonths: [],
+    options: {
+      debug: true,
+      feedUrl: 'assets/scripts/feed.json',
+      loop: true,
+      maxThumbsShown: 5,
+      autoplay: false,
+      autoplaytime: 10000,
+      boxAnimationTime: 300,
+      swipeMinTime: 50,
+      swipeMaxTime: 400,
+      swipeMinDistance: 100,
+      swipeMaxDistance: 1600,
+      clickPreventTime: 100
+    },
 		logCount: 0,
-		states: {
-			valid: false
-		}
+    categories: [],
+    products: [],
+    autoplay: null,
+    currentIndex: 0,
+    thumbIndexOffset: 0,
+    numOfSlides: 0,
+    timer: null,
+    states: {
+      boxAnimating: false,
+      slideAnimating: false
+    }
 	};
 /**---------------------------------------
 	Log
@@ -175,7 +49,7 @@ window.requestAnimFrame = (function(){
 				console.clear();
 				banner.logCount = 0;
 			}
-			if (msg !== undefined) {
+			if (msg2 !== undefined) {
 				console.log(msg, msg2);
 			}
 			else {
@@ -188,402 +62,173 @@ window.requestAnimFrame = (function(){
 		}
 	};
 /**---------------------------------------
-	Generate Dates & Month
+	Get Feed Data
 ---------------------------------------**/
-	banner.daysInMonth = function(month, year) {
-		var numOfDates =  new Date(year, (month+1), 0).getDate();
-		var dates = [];
-		for (var i=1;i<=numOfDates;i++) {
-			dates.push(i);
-		}
-		return dates;
+	var getFeed = function() {
+    var xmlhttp = new XMLHttpRequest();
+    var feedUrl =banner.options.feedUrl;
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var data = JSON.parse(xmlhttp.responseText);
+        banner.log('data', data);
+        banner.categories = enrichData(data.categories);
+        banner.products = enrichData(data.products);
+        banner.numOfSlides = banner.products.length;
+        injectHtml();
+      }
+    };
+    xmlhttp.open('GET', feedUrl, true);
+    xmlhttp.send();
 	};
-	banner.generateCalender = function(daysInFuture, length) {
-		var calender = [];
-		for (var i=0;i<=(length-daysInFuture);i++) {
-			var date = new Date();
-			date.setDate(date.getDate() + i + daysInFuture);
-			calender.push(date);
-		}
-		return calender;
-	};
-	banner.generateDates = function() {
-		// Range 4-365
-		var departureDates = banner.generateCalender(4, 365);
-		var returnDates = banner.generateCalender(5, 365);
-
-		var monthList = ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'];
-
-		var i,
-			date,
-			month,
-			year,
-			ii,
-			found,
-			months;
-
-		//departureDates
-		months = [];
-		for (i=0;i<departureDates.length;i++) {
-			date = departureDates[i];
-			month = date.getMonth();
-			year = date.getFullYear();
-			found = false;
-			for (ii=0;ii<months.length;ii++) {
-				if (months[ii].value === year + ' ' + month) {
-					found = true;
-				}
-			}
-			if (!found) {
-				months.push({
-					value: year + ' ' + month,
-					//name: monthList[month] + ' ' + year,
-					name: monthList[month],
-					month: month,
-					year: year,
-					dates: []
-				});
-			}
-			for (ii=0;ii<months.length;ii++) {
-				if (months[ii].value === year + ' ' + month) {
-					months[ii].dates.push(date);
-				}
-			}
-		}
-		banner.departureDates = months;
-
-		//returnDates
-		months = [];
-		for (i=0;i<returnDates.length;i++) {
-			date = returnDates[i];
-			month = date.getMonth();
-			year = date.getFullYear();
-			found = false;
-			for (ii=0;ii<months.length;ii++) {
-				if (months[ii].value === year + ' ' + month) {
-					found = true;
-				}
-			}
-			if (!found) {
-				months.push({
-					value: year + ' ' + month,
-					//name: monthList[month] + ' ' + year,
-					name: monthList[month],
-					month: month,
-					year: year,
-					dates: []
-				});
-			}
-			for (ii=0;ii<months.length;ii++) {
-				if (months[ii].value === year + ' ' + month) {
-					months[ii].dates.push(date);
-				}
-			}
-		}
-		banner.returnDates = months;
-		banner.updatesMonths();
-	};
-	banner.updatesMonths = function() {
-		var i,
-			month,
-			year,
-			addIndex,
-			yearGroup,
-			option,
-			yearsPast = [];
-		banner.form.inputs.departureMonth.elem.options.length = 1;
-		//banner.form.inputs.departureMonth.elem.options.length = banner.departureDates.length + 1;
-		yearsPast = [];
-		addIndex = 1;
-		for (i=0;i<banner.departureDates.length;i++) {
-			month = banner.departureDates[i];
-			if (yearsPast.indexOf(month.year) === -1) {
-				yearGroup = document.createElement('optgroup');
-				yearGroup.label = month.year;
-				banner.form.inputs.departureMonth.elem.appendChild(yearGroup);
-				yearsPast.push(month.year);
-			}
-			option = document.createElement('option');
-			option.value = month.value;
-			option.appendChild(document.createTextNode(month.name));
-			yearGroup.appendChild(option);
-			//banner.form.inputs.departureMonth.elem.options[i+addIndex] = new Option(month.name, month.value, false, false);
-		}
-		banner.form.inputs.returnMonth.elem.options.length = 1;
-		//banner.form.inputs.returnMonth.elem.options.length = banner.returnDates.length + 1;
-		yearsPast = [];
-		addIndex = 1;
-		for (i=0;i<banner.returnDates.length;i++) {
-			month = banner.returnDates[i];
-			if (yearsPast.indexOf(month.year) === -1) {
-				yearGroup = document.createElement('optgroup');
-				yearGroup.label = month.year;
-				banner.form.inputs.returnMonth.elem.appendChild(yearGroup);
-				yearsPast.push(month.year);
-			}
-			option = document.createElement('option');
-			option.value = month.value;
-			option.appendChild(document.createTextNode(month.name));
-			yearGroup.appendChild(option);
-			//banner.form.inputs.returnMonth.elem.options[i+1] = new Option(month.name, month.value, false, false);
-		}
-	};
-	banner.updatesDates = function(departureDates, returnDates) {
-		departureDates = (departureDates === undefined) ? false : departureDates;
-		returnDates = (returnDates === undefined) ? false : returnDates;
-		var i,
-			month,
-			ii,
-			date;
-		if (departureDates) {
-			var departureMonthValue = banner.form.inputs.departureMonth.value;
-			for (i=0;i<banner.departureDates.length;i++) {
-				month = banner.departureDates[i];
-				if (month.value === departureMonthValue) {
-					banner.form.inputs.departureDay.elem.options.length = (month.dates.length + 1);
-					for (ii=0;ii<month.dates.length;ii++) {
-						date = month.dates[ii];
-						banner.form.inputs.departureDay.elem.options[ii+1] = new Option(date.getDate(), date, false, false);
-					}
-					break;
-				}
-			}
-		}
-		if (returnDates) {
-			var returnMonthValue = banner.form.inputs.returnMonth.value;
-			for (i=0;i<banner.returnDates.length;i++) {
-				month = banner.returnDates[i];
-				if (month.value === returnMonthValue) {
-					banner.form.inputs.returnDay.elem.options.length = (month.dates.length + 1);
-					for (ii=0;ii<month.dates.length;ii++) {
-						date = month.dates[ii];
-						banner.form.inputs.returnDay.elem.options[ii+1] = new Option(date.getDate(), date, false, false);
-					}
-					break;
-				}
-			}
-		}
-	};
-	banner.yyyymmdd = function(date) {
-		date = new Date(date);
-		var yyyy = date.getFullYear().toString();
-		var mm = (date.getMonth()+1).toString(); // getMonth() is zero-based
-		var dd  = date.getDate().toString();
-		return yyyy + (mm[1]?mm:'0'+mm[0]) + (dd[1]?dd:'0'+dd[0]); // padding
-	};
+  // Add states to products and categories
+  var enrichData = function(list) {
+    for (var i=0;i<list.length; i++) {
+      var item = list[i];
+      item.states = {
+        active: false,
+        show: true
+      };
+    }
+    return list;
+  };
 /**---------------------------------------
-	Search Submit
+	DOM Functions
 ---------------------------------------**/
-	banner.encodeQueryData = function(data) {
-		var ret = [];
-		for (var d in data) {
-			ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
-		}
-		return ret.join('&');
-	};
-	banner.searchSubmit = function() {
-		var data = {};
-		data.searchtype = 1;
-		data.departurecity = banner.form.inputs.destinationFrom.value;
-		data.arriveat = banner.form.inputs.destinationTo.value;
-		data.departuredate = banner.yyyymmdd(banner.form.inputs.departureDay.value);
-		data.returndate = banner.yyyymmdd(banner.form.inputs.returnDay.value);
+  // injectHtml
+  var injectHtml = function() {
+    var container = document.querySelector('.banner__slides');
+    var thumbContainer = document.querySelector('.banner__thumbs');
+    if (container === null || thumbContainer === null) {
+      return false;
+    }
+    for (var i=0;i<banner.products.length; i++) {
+      var product = banner.products[i];
 
-		var queryString = banner.encodeQueryData(data);
+      var elem = document.createElement('div');
+      var elemImg = document.createElement('img');
+      var thumbElem = document.createElement('div');
+      var thumbElemImg = document.createElement('img');
 
-		queryString = queryString + '&paxcombination=' + banner.form.inputs.countAdults.value + 'ADT' + ',' + banner.form.inputs.countChildren.value + 'CHD';
-		if (banner.form.inputs.countChildren.value > 0) {
-			queryString = queryString + '&roomchildage=' + (function(){
-				var result = '';
-				var i;
-				for (i=0;i<parseInt(banner.form.inputs.countChildren.value); i++) {
-					//result = result + '2,';
-					switch(i) {
-						case 0:
-							result = result + banner.form.inputs.childOneAge.value + ',';
-							break;
-						case 1:
-							result = result + banner.form.inputs.childTwoAge.value + ',';
-							break;
-						case 2:
-							result = result + banner.form.inputs.childThreeAge.value + ',';
-							break;
-						case 3:
-							result = result + banner.form.inputs.childFourAge.value + ',';
-							break;
-					}
-				}
-				return result;
-			})();
-		}
-		var url = 'http://rejser.fdm-travel.dk/soeger?' + queryString;
-		window.open(url,'_blank');
-	};
+      elem.className = 'banner__productimage';
+      elemImg.src = product.img;
+      thumbElem.className = 'banner__thumb';
+      thumbElemImg.src = product.thumbImg;
+
+      elem.appendChild(elemImg);
+      container.appendChild(elem);
+      thumbElem.appendChild(thumbElemImg);
+      thumbContainer.appendChild(thumbElem);
+
+      product.elem = elem;
+      product.thumbElem = thumbElem;
+      product.index = i;
+      banner.log('product', product);
+    }
+    updateDOM();
+  };
+  // Update DOM
+  var updateDOM = function() {
+    banner.log('updateDOM', banner.currentIndex);
+    for (var i=0;i<banner.products.length; i++) {
+      var product = banner.products[i];
+
+      // Update Thumbs (!!!! This won't work. I have to rebuild the index to take account for categories !!!!)
+      // Loop over the product, and only increase thumb index, when the correct ones are found.
+      var localOffset = (product.index + banner.thumbIndexOffset) % banner.numOfSlides;
+      banner.log('localOffset', localOffset);
+      if (localOffset < 5) {
+        product.thumbElem.className = 'banner__thumb banner__thumb--pos'+localOffset;
+      }
+
+      // Update product
+      if (product.index === banner.currentIndex) {
+        var container = document.querySelector('.banner__930x600');
+        var productInfoContainer = container.querySelector('.banner__productinfo');
+        container.querySelector('.splash__line1').innerText = product.splashLine1;
+        container.querySelector('.splash__line2').innerText = product.splashLine2;
+        var html = '';
+        html += '<div class="rte"><img src="'+product.logoImg+'">';
+        html += '<div class="rte__headline">'+product.price+'</div>';
+        html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a class="btn">Se flere tilbud</a>';
+        html += '</div>';
+        productInfoContainer.innerHTML = html;
+        product.elem.className += 'banner__productimage--active';
+      }
+      else {
+        product.elem.className = product.elem.className.replace(/banner__productimage--active/g, '');
+      }
+    }
+  };
 /**---------------------------------------
-	Value Change
+  SLides Logic
 ---------------------------------------**/
-	banner.valuesChange = function(event) {
-		var id = event.target.id;
-		var pointer = banner.form.inputs[id];
-		pointer.value = event.target.value;
-		pointer.states.changed = true;
-		banner.updateStates();
-	};
-	banner.updateModelValues = function() {
-		for (var key in banner.form.inputs) {
-			input = banner.form.inputs[key];
-			input.value = input.elem.value;
-		}
-	};
-/**---------------------------------------
-	Update States
----------------------------------------**/
-	banner.updateStates = function(event) {
-		// Update individual states
-		var key,
-			input;
-		for (key in banner.form.inputs) {
-			input = banner.form.inputs[key];
-			if (input.value !== null && input.value !== '') {
-				input.states.valid = true;
-				input.states.changed = true;
-			}
-			else {
-				input.states.valid = false;
-				input.states.changed = true;
-			}
-		}
-		// Update individual requirements
-		for (key in banner.form.inputs) {
-			input = banner.form.inputs[key];
-			if (input.require.length > 0) {
-				var anyInvalid = false;
-				for (var i=0;i<input.require.length;i++) {
-					var require = input.require[i];
-					var required = banner.form.inputs[require];
-					if (required !== undefined) {
-						if (!required.states.valid) {
-							anyInvalid = true;
-							break;
-						}
-					}
-				}
-				input.states.disabled = anyInvalid;
-				input.states.changed = true;
-			}
-		}
-
-		// Update DOM elements
-		banner.updateDOM();
-	};
-/**---------------------------------------
-	Update DOM
----------------------------------------**/
-	banner.updateDOM = function(event) {
-		for (var key in banner.form.inputs) {
-			var input = banner.form.inputs[key];
-			if (input.states.changed) {
-				// Handle disabled
-				if (input.states.disabled && !input.elem.hasAttribute('disabled')) {
-					input.elem.setAttribute('disabled', 'disabled');
-					// Ugly
-					input.elem.parentNode.setAttribute('disabled', 'disabled');
-				}
-				else if (!input.states.disabled && input.elem.hasAttribute('disabled')) {
-					input.elem.removeAttribute('disabled');
-					// Ugly
-					input.elem.parentNode.removeAttribute('disabled');
-				}
-				// Handle valid
-				if (input.states.valid) {
-
-				}
-				else {
-
-				}
-				// Reset change state
-				input.states.changed = false;
-			}
-		}
-	};
+  // Set state of autoplay
+  function setAutoPlay(direction) {
+  direction = (direction === undefined) ? 1 : direction;
+  if (banner.options.autoplay) {
+    banner.timer = setTimeout(function(){
+      banner.switchSlide(direction);
+    },banner.options.autoplaytime);
+  }
+}
+  // Switch Slide
+  banner.switchSlide = function(direction, jump) {
+    //banner.log('switchSlide', direction);
+    direction = (direction === undefined) ? 1 : direction;
+    jump = (jump === undefined) ? false : jump;
+    clearTimeout(banner.timer);
+    var activeIndex = banner.currentIndex;
+    var newActiveIndex;
+    if (jump) {
+      newActiveIndex = direction;
+    }
+    else {
+      if (banner.options.loop) {
+        newActiveIndex = (activeIndex + direction) % banner.numOfSlides;
+      }
+      else {
+        newActiveIndex = activeIndex + direction;
+        if (newActiveIndex > (banner.numOfSlides-1)) {
+          newActiveIndex = banner.numOfSlides-1;
+        }
+      }
+    }
+    if (newActiveIndex < 0) {
+      if (banner.options.loop) {
+        newActiveIndex = Math.abs(banner.numOfSlides + newActiveIndex);
+      }
+      else {
+        newActiveIndex = 0;
+      }
+    }
+    banner.currentIndex = newActiveIndex;
+    //setPos();
+    updateDOM();
+    setAutoPlay(direction);
+  };
+  // Switch Thumb
+  banner.switchThumb = function(direction) {
+    banner.thumbIndexOffset -= direction;
+    updateDOM();
+  };
+  function setPos() {
+    var leftPos = -(banner.currentIndex * 100);
+    var css = {
+      '-moz-transform': 'translate(' + leftPos +'%, 0%)',
+      '-ms-transform': 'translate(' + leftPos +'%, 0%)',
+      '-webkit-transform':'translate(' + leftPos +'%, 0%)',
+      'transform': 'translate(' + leftPos +'%, 0%)'
+    };
+    banner.css = css;
+  }
 /**---------------------------------------
 	Bindings
 ---------------------------------------**/
 
-	// Special handling for child ages
-	banner.form.inputs.countChildren.elem.addEventListener('change', function(event) {
-		var value = event.target.value;
-		value = parseInt(value);
-		switch(value) {
-			case 0:
-				banner.form.inputs.childOneAge.states.disabled = true;
-				banner.form.inputs.childTwoAge.states.disabled = true;
-				banner.form.inputs.childThreeAge.states.disabled = true;
-				banner.form.inputs.childFourAge.states.disabled = true;
-				banner.form.inputs.childHeadline.states.disabled = true;
-				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay'];
-				break;
-			case 1:
-				banner.form.inputs.childOneAge.states.disabled = false;
-				banner.form.inputs.childTwoAge.states.disabled = true;
-				banner.form.inputs.childThreeAge.states.disabled = true;
-				banner.form.inputs.childFourAge.states.disabled = true;
-				banner.form.inputs.childHeadline.states.disabled = false;
-				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge'];
-				break;
-			case 2:
-				banner.form.inputs.childOneAge.states.disabled = false;
-				banner.form.inputs.childTwoAge.states.disabled = false;
-				banner.form.inputs.childThreeAge.states.disabled = true;
-				banner.form.inputs.childFourAge.states.disabled = true;
-				banner.form.inputs.childHeadline.states.disabled = false;
-				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge'];
-				break;
-			case 3:
-				banner.form.inputs.childOneAge.states.disabled = false;
-				banner.form.inputs.childTwoAge.states.disabled = false;
-				banner.form.inputs.childThreeAge.states.disabled = false;
-				banner.form.inputs.childFourAge.states.disabled = true;
-				banner.form.inputs.childHeadline.states.disabled = false;
-				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge'];
-				break;
-			case 4:
-				banner.form.inputs.childOneAge.states.disabled = false;
-				banner.form.inputs.childTwoAge.states.disabled = false;
-				banner.form.inputs.childThreeAge.states.disabled = false;
-				banner.form.inputs.childFourAge.states.disabled = false;
-				banner.form.inputs.childHeadline.states.disabled = false;
-				banner.form.inputs.searchButton.require = ['destinationFrom', 'destinationTo', 'departureMonth', 'departureDay', 'returnMonth', 'returnDay', 'childOneAge', 'childTwoAge', 'childThreeAge', 'childFourAge'];
-				break;
-		}
-		banner.updateStates();
-	}, false);
-
-
-	// Handling for all inputs
-	for (var key in banner.form.inputs) {
-		var input = banner.form.inputs[key];
-		input.elem.addEventListener('change', banner.valuesChange, false);
-	}
-
-
-	// Special handling for dates on month change
-	banner.form.inputs.departureMonth.elem.addEventListener('change', function(event) {
-		banner.updatesDates(true, false);
-	});
-	banner.form.inputs.returnMonth.elem.addEventListener('change', function(event) {
-		banner.updatesDates(false, true);
-	});
-
-	// Handle search event
-	banner.form.inputs.searchButton.elem.addEventListener('click', function(event) {
-		if (!banner.form.inputs.searchButton.states.disabled) {
-			banner.searchSubmit();
-		}
-	});
-
-	banner.generateDates();
-	banner.updateModelValues();
-	banner.updateStates();
+/**---------------------------------------
+	Initialize
+---------------------------------------**/
+  getFeed();
+  window.banner = banner;
 
 })(window, window.document);
