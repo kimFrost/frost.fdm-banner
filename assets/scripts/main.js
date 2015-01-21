@@ -45,7 +45,7 @@ window.requestAnimFrame = (function(){
 ---------------------------------------**/
 	banner.log = function(msg, msg2) {
 		try {
-			if (banner.logCount > 500) {
+			if (banner.logCount > 200) {
 				console.clear();
 				banner.logCount = 0;
 			}
@@ -71,8 +71,8 @@ window.requestAnimFrame = (function(){
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         var data = JSON.parse(xmlhttp.responseText);
         banner.log('data', data);
-        banner.categories = enrichData(data.categories);
-        banner.products = enrichData(data.products);
+        banner.categories = enrichCategories(data.categories);
+        banner.products = enrichProducts(data.products);
         banner.numOfSlides = banner.products.length;
         injectHtml();
       }
@@ -81,7 +81,16 @@ window.requestAnimFrame = (function(){
     xmlhttp.send();
 	};
   // Add states to products and categories
-  var enrichData = function(list) {
+  var enrichCategories = function(list) {
+    for (var i=0;i<list.length; i++) {
+      var item = list[i];
+      item.states = {
+        active: true
+      };
+    }
+    return list;
+  };
+  var enrichProducts = function(list) {
     for (var i=0;i<list.length; i++) {
       var item = list[i];
       item.states = {
@@ -112,6 +121,9 @@ window.requestAnimFrame = (function(){
       elem.className = 'banner__productimage';
       elemImg.src = product.img;
       thumbElem.className = 'banner__thumb';
+      var thumbOnclick =  document.createAttribute('onclick');
+      thumbOnclick.value = 'window.banner.switchSlide('+i+', true)';
+      thumbElem.setAttributeNode(thumbOnclick); // Bind thumb onclick
       thumbElemImg.src = product.thumbImg;
 
       elem.appendChild(elemImg);
@@ -123,24 +135,55 @@ window.requestAnimFrame = (function(){
       product.thumbElem = thumbElem;
       product.index = i;
       banner.log('product', product);
+
     }
     updateDOM();
   };
   // Update DOM
   var updateDOM = function() {
     banner.log('updateDOM', banner.currentIndex);
-    for (var i=0;i<banner.products.length; i++) {
-      var product = banner.products[i];
+
+    banner.log('banner.categories', banner.categories);
+
+    var i = 0,
+        product;
+    // Update product show state
+    for (i=0;i<banner.products.length; i++) {
+      product = banner.products[i];
+
+      var categoriesValid = false;
+      if (product.categories.length === 0) {
+        categoriesValid = true; // The product should be shown
+      }
+      for (var ii = 0; ii < product.categories.length; ii++) {
+        var _category = product.categories[ii];
+        for (var iii = 0; iii < banner.categories.length; iii++) {
+          if (banner.categories[iii].id === _category) {
+            if (banner.categories[iii].states.active) {
+              categoriesValid = true; // The product should be shown
+            }
+          }
+        }
+      }
+      product.states.show = categoriesValid;
+    }
+    // Update product active state and position
+    for (i=0;i<banner.products.length; i++) {
+      product = banner.products[i];
+
+
+
+
 
       // Update Thumbs (!!!! This won't work. I have to rebuild the index to take account for categories !!!!)
       // Loop over the product, and only increase thumb index, when the correct ones are found.
       var localOffset = (product.index + banner.thumbIndexOffset) % banner.numOfSlides;
-      banner.log('localOffset', localOffset);
+      //banner.log('localOffset', localOffset);
       if (localOffset < 5) {
         product.thumbElem.className = 'banner__thumb banner__thumb--pos'+localOffset;
       }
 
-      // Update product
+      // Update product active state
       if (product.index === banner.currentIndex) {
         var container = document.querySelector('.banner__930x600');
         var productInfoContainer = container.querySelector('.banner__productinfo');
@@ -153,10 +196,29 @@ window.requestAnimFrame = (function(){
         html += '</div>';
         productInfoContainer.innerHTML = html;
         product.elem.className += 'banner__productimage--active';
+        product.thumbElem.className =  product.thumbElem.className + ' banner__thumb--active';
       }
       else {
         product.elem.className = product.elem.className.replace(/banner__productimage--active/g, '');
+        product.thumbElem.className = product.thumbElem.className.replace(/banner__thumb--active/g, '');
       }
+    }
+  };
+  // categoryChange
+  banner.categoryChange = function(category, elem) {
+    //banner.log(category, elem.checked);
+    var found = false;
+    for (var i=0;i<banner.categories.length;i++) {
+      var _category = banner.categories[i];
+      //banner.log(_category);
+      if (_category.id === category) {
+        _category.states.active = elem.checked;
+        found = true;
+        break;
+      }
+    }
+    if (found) {
+      updateDOM();
     }
   };
 /**---------------------------------------

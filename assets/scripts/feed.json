@@ -70,6 +70,76 @@
       "desc": "7282828282 · Damestr",
       "descAlt": "Normalpris 499,-",
       "href": "http://google.dk"
+    },
+    {
+      "id": "p5",
+      "name": "Sko 5",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "50%",
+      "price": "599,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 599,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p6",
+      "name": "Sko 6",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "60%",
+      "price": "699,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 699,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p7",
+      "name": "Sko 7",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "70%",
+      "price": "799,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 799,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p8",
+      "name": "Sko 8",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "80%",
+      "price": "899,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 899,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p9",
+      "name": "Sko 9",
+      "categories": ["women", "men"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "90%",
+      "price": "999,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 999,-",
+      "href": "http://google.dk"
     }
   ]
 }

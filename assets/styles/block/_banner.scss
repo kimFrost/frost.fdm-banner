@@ -156,17 +156,17 @@ $_banner_height: 600px;
   padding-right: 40px;
   width: 520px;
   height: 60px;
-  overflow: hidden;
-
+  //overflow: hidden;
 }
 
 .banner__thumb {
   @include translate(-100px, -100px);
   background-color: $color_white;
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 40px;
+  cursor: pointer;
   & + & {
     //margin-left: 10px;
   }
@@ -179,27 +179,43 @@ $_banner_height: 600px;
 }
 
 .banner__thumb--active {
-  @include box-shadow(0 0 5px 10px rgba($color_white, 0.6));
+  //@include box-shadow(0 0 10px 3px rgba($color_white, 0.8));
+  &:before {
+    @include rotate(45deg);
+    content: "";
+    display: block;
+    position: absolute;
+    top: -15px;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 10px;
+    background-color: $color_white;
+  }
 }
 
 .banner__thumb--pos0 {
   @include translate(0, 0);
+  display: block;
 }
 
 .banner__thumb--pos1 {
   @include translate(90px, 0);
+  display: block;
 }
 
 .banner__thumb--pos2 {
   @include translate(180px, 0);
+  display: block;
 }
 
 .banner__thumb--pos3 {
   @include translate(270px, 0);
+  display: block;
 }
 
 .banner__thumb--pos4 {
   @include translate(360px, 0);
+  display: block;
 }
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
