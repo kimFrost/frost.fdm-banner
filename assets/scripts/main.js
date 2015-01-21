@@ -140,11 +140,13 @@ window.requestAnimFrame = (function(){
     updateDOM();
   };
   // Update DOM
-  var updateDOM = function() {
+  var updateDOM = function(updateIndex) {
+    updateIndex = (updateIndex === undefined) ? false : updateIndex;
     banner.log('updateDOM', banner.currentIndex);
 
     banner.log('banner.categories', banner.categories);
 
+    var shownProducts = [];
     var i = 0,
         product;
     // Update product show state
@@ -166,22 +168,34 @@ window.requestAnimFrame = (function(){
         }
       }
       product.states.show = categoriesValid;
+      if (product.states.show) {
+        shownProducts.push(product);
+      }
     }
     // Update product active state and position
+    var shownIndex = 0;
+    banner.numOfSlides = shownProducts.length;
     for (i=0;i<banner.products.length; i++) {
       product = banner.products[i];
-
-
-
-
-
-      // Update Thumbs (!!!! This won't work. I have to rebuild the index to take account for categories !!!!)
-      // Loop over the product, and only increase thumb index, when the correct ones are found.
-      var localOffset = (product.index + banner.thumbIndexOffset) % banner.numOfSlides;
-      //banner.log('localOffset', localOffset);
-      if (localOffset < 5) {
-        product.thumbElem.className = 'banner__thumb banner__thumb--pos'+localOffset;
+      if (product.states.show) {
+        if (shownIndex === 0 && updateIndex) {
+          banner.currentIndex = product.index;
+        }
+        var localOffset = (shownIndex + banner.thumbIndexOffset) % banner.numOfSlides;
+        if (localOffset < 5 && localOffset >= 0) {
+          product.thumbElem.className = 'banner__thumb banner__thumb--pos'+localOffset;
+        }
+        else {
+          product.thumbElem.className = 'banner__thumb';
+        }
+        shownIndex++;
       }
+      else {
+        product.thumbElem.className = 'banner__thumb';
+      }
+
+
+
 
       // Update product active state
       if (product.index === banner.currentIndex) {
@@ -195,7 +209,7 @@ window.requestAnimFrame = (function(){
         html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a class="btn">Se flere tilbud</a>';
         html += '</div>';
         productInfoContainer.innerHTML = html;
-        product.elem.className += 'banner__productimage--active';
+        product.elem.className += ' banner__productimage--active';
         product.thumbElem.className =  product.thumbElem.className + ' banner__thumb--active';
       }
       else {
@@ -218,7 +232,7 @@ window.requestAnimFrame = (function(){
       }
     }
     if (found) {
-      updateDOM();
+      updateDOM(true);
     }
   };
 /**---------------------------------------
