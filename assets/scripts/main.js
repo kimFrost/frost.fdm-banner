@@ -14,7 +14,7 @@ window.requestAnimFrame = (function(){
 
 	var banner = {
     options: {
-      debug: true,
+      debug: false,
       feedUrl: 'assets/scripts/feed.json',
       loop: true,
       maxThumbsShown: 5,
@@ -44,8 +44,11 @@ window.requestAnimFrame = (function(){
 	Log
 ---------------------------------------**/
 	banner.log = function(msg, msg2) {
+    if (!banner.options.debug) {
+      return;
+    }
 		try {
-			if (banner.logCount > 200) {
+			if (banner.logCount > 500) {
 				console.clear();
 				banner.logCount = 0;
 			}
@@ -124,6 +127,7 @@ window.requestAnimFrame = (function(){
       var thumbOnclick =  document.createAttribute('onclick');
       thumbOnclick.value = 'window.banner.switchSlide('+i+', true)';
       thumbElem.setAttributeNode(thumbOnclick); // Bind thumb onclick
+      thumbElem.textContent = i; // For debugging
       thumbElemImg.src = product.thumbImg;
 
       elem.appendChild(elemImg);
@@ -137,15 +141,12 @@ window.requestAnimFrame = (function(){
       banner.log('product', product);
 
     }
-    updateDOM();
+    updateDOM(true);
   };
   // Update DOM
   var updateDOM = function(updateIndex) {
     updateIndex = (updateIndex === undefined) ? false : updateIndex;
-    banner.log('updateDOM', banner.currentIndex);
-
-    banner.log('banner.categories', banner.categories);
-
+    //banner.log('updateDOM', banner.currentIndex);
     var shownProducts = [];
     var i = 0,
         product;
@@ -180,11 +181,21 @@ window.requestAnimFrame = (function(){
       if (product.states.show) {
         if (shownIndex === 0 && updateIndex) {
           banner.currentIndex = product.index;
+          //banner.thumbIndexOffset = 0; // Reset thumbs offset index
+          banner.thumbIndexOffset = banner.numOfSlides; // Reset thumbs offset index
         }
         var localOffset = (shownIndex + banner.thumbIndexOffset) % banner.numOfSlides;
+        //var localOffset = (shownIndex + banner.thumbIndexOffset) % banner.options.maxThumbsShown;
+        //banner.log('localOffset', localOffset);
+        //banner.log('shownIndex', shownIndex);
         if (localOffset < 5 && localOffset >= 0) {
           product.thumbElem.className = 'banner__thumb banner__thumb--pos'+localOffset;
         }
+        /* The math is not correct. I am using a thumbIndexOffset force offset instead in switchThumb()
+        else if (shownIndex <= ((banner.numOfSlides + banner.options.maxThumbsShown) + localOffset)) {
+          product.thumbElem.className = 'banner__thumb banner__thumb--pos'+Math.abs(localOffset);
+        }
+        */
         else {
           product.thumbElem.className = 'banner__thumb';
         }
@@ -193,8 +204,6 @@ window.requestAnimFrame = (function(){
       else {
         product.thumbElem.className = 'banner__thumb';
       }
-
-
 
 
       // Update product active state
@@ -217,6 +226,7 @@ window.requestAnimFrame = (function(){
         product.thumbElem.className = product.thumbElem.className.replace(/banner__thumb--active/g, '');
       }
     }
+    banner.log('banner.thumbIndexOffset', banner.thumbIndexOffset);
   };
   // categoryChange
   banner.categoryChange = function(category, elem) {
@@ -259,6 +269,51 @@ window.requestAnimFrame = (function(){
       newActiveIndex = direction;
     }
     else {
+      var shownProducts = [];
+      var i,
+          product;
+      for (i=0;i<banner.products.length; i++) {
+        product = banner.products[i];
+        if (product.states.show) {
+          shownProducts.push(product);
+        }
+      }
+      banner.log('shownProducts', shownProducts);
+      banner.log('activeIndex', activeIndex);
+      if (banner.options.loop) {
+        for (i=0;i<shownProducts.length; i++) {
+          product = shownProducts[i];
+          if (product.index === activeIndex) {
+
+            newActiveIndex = (i+direction) % shownProducts.length;
+            if (newActiveIndex < 0) {
+              newActiveIndex = shownProducts.length + newActiveIndex;
+            }
+            banner.log('MATH', (i+direction) % shownProducts.length);
+            banner.log('newActiveIndex', newActiveIndex);
+            newActiveIndex = shownProducts[newActiveIndex].index;
+            /*
+            if (shownProducts[i+direction] !== undefined) {
+              newActiveIndex = shownProducts[i+direction ].index;
+            }
+            else {
+              newActiveIndex = shownProducts[i+direction].index;
+            }
+            */
+          }
+        }
+      }
+      else {
+        for (i=0;i<shownProducts.length; i++) {
+          product = shownProducts[i];
+          if (product.index === activeIndex) {
+            if (shownProducts[i+direction] !== undefined) {
+              newActiveIndex = shownProducts[i+direction].index;
+            }
+          }
+        }
+      }
+      /*
       if (banner.options.loop) {
         newActiveIndex = (activeIndex + direction) % banner.numOfSlides;
       }
@@ -268,7 +323,9 @@ window.requestAnimFrame = (function(){
           newActiveIndex = banner.numOfSlides-1;
         }
       }
+      */
     }
+    /*
     if (newActiveIndex < 0) {
       if (banner.options.loop) {
         newActiveIndex = Math.abs(banner.numOfSlides + newActiveIndex);
@@ -277,6 +334,7 @@ window.requestAnimFrame = (function(){
         newActiveIndex = 0;
       }
     }
+    */
     banner.currentIndex = newActiveIndex;
     //setPos();
     updateDOM();
@@ -285,6 +343,9 @@ window.requestAnimFrame = (function(){
   // Switch Thumb
   banner.switchThumb = function(direction) {
     banner.thumbIndexOffset -= direction;
+    if (banner.thumbIndexOffset <= 0) {
+      banner.thumbIndexOffset = banner.numOfSlides;
+    }
     updateDOM();
   };
   function setPos() {

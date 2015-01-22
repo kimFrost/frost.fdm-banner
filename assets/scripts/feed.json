@@ -130,7 +130,7 @@
     {
       "id": "p9",
       "name": "Sko 9",
-      "categories": ["children"],
+      "categories": ["women"],
       "img": "http://placehold.it/425x340",
       "thumbImg": "http://placehold.it/80x60",
       "logoImg": "http://placehold.it/130x21",
@@ -139,6 +139,34 @@
       "price": "999,-",
       "desc": "7282828282 · Damestr",
       "descAlt": "Normalpris 999,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p10",
+      "name": "Sko 10",
+      "categories": ["children"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "100%",
+      "price": "1099,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 1099,-",
+      "href": "http://google.dk"
+    },
+    {
+      "id": "p11",
+      "name": "Sko 11",
+      "categories": ["children"],
+      "img": "http://placehold.it/425x340",
+      "thumbImg": "http://placehold.it/80x60",
+      "logoImg": "http://placehold.it/130x21",
+      "splashLine1": "Spar",
+      "splashLine2": "110%",
+      "price": "1199,-",
+      "desc": "7282828282 · Damestr",
+      "descAlt": "Normalpris 1199,-",
       "href": "http://google.dk"
     }
   ]
