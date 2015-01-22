@@ -1,0 +1,15 @@
+{
+    "version": "1.0",
+    "title": "Main asset",
+    "description": "",
+    "width": 930,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+    },
+    "source": "index.html"
+}

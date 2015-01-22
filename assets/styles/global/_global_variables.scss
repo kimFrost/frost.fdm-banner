@@ -21,7 +21,7 @@ $color_grey: #c8c8c8;
 
 
 // Media Queries, Labels and Content widths
-@include newMediaQuerie((name: '930x600', min-width: 930px, max-width: 930px, contentWidth: 870px));
+@include newMediaQuerie((name: '930x600', min-width: 930px, contentWidth: 870px));
 
 
 

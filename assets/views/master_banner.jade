@@ -5,6 +5,9 @@ html(lang="da")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel='stylesheet', href='./css/main.css')
+    <!--[if IE 9]>
+    link(rel='stylesheet', href='./css/ie9.css')
+    <![endif]-->
     block head
 
     script(src='http://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js')
@@ -14,10 +17,8 @@ html(lang="da")
     block globalVars
       - var bannerClasses = "banner";
 
-    section(class="#{bannerClasses}", data-ng-controller="bannerCtrl as banner")
-      div.banner__fps(data-ng-bind="banner.fps")
-
+    section.banner
       block content
 
-
-    script(src='./assets/scripts/main.js')
+    //script(src='./assets/scripts/main.js')
+    script(src='./scripts/main.js')

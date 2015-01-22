@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<adf>
+    <banner>
+        <details>
+            <uniqueId>b79a01d4ac9f09457c363fcd348d5c7a5</uniqueId>
+            <format>Expanding</format>
+            <name>Expanding</name>
+            <events>1</events>
+        </details>
+        <settings>
+            <position>1</position>
+            <autoShowAfter>0</autoShowAfter>
+            <autoCloseAfter>0</autoCloseAfter>
+            <keepCollapsed/>
+            <expandDelay>1</expandDelay>
+            <closeOnRollOut>1</closeOnRollOut>
+            <showType>1</showType>
+            <expandsTo>left</expandsTo>
+            <expandedX>0</expandedX>
+            <expandedY>0</expandedY>
+            <expandTime> 0 </expandTime>
+            <collapseTime>0</collapseTime>
+            <pushdown>0</pushdown>
+            <enableSideKickAnimation/>
+            <restartAnimation>0</restartAnimation>
+            <landingPageTarget>_blank</landingPageTarget>
+        </settings>
+        <assets>
+            <asset>
+                <sourceType>src</sourceType>
+                <fileName>collapse.zip</fileName>
+                <clickTagNames/>
+                <eventIds/>
+            </asset>
+            <asset>
+                <sourceType>esrc</sourceType>
+                <fileName>expand.zip</fileName>
+                <clickTagNames/>
+                <eventIds/>
+            </asset>
+        </assets>
+        <bannerClickTags/>
+        <bannerEvents/>
+    </banner>
+</adf>
