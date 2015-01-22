@@ -113,16 +113,20 @@ window.requestAnimFrame = (function(){
     if (container === null || thumbContainer === null) {
       return false;
     }
+
+    var elem = document.createElement('div');
+    var elemImg = document.createElement('img');
+    elem.className = 'banner__productimage';
+    elem.appendChild(elemImg);
+
     for (var i=0;i<banner.products.length; i++) {
       var product = banner.products[i];
 
-      var elem = document.createElement('div');
-      var elemImg = document.createElement('img');
       var thumbElem = document.createElement('div');
       var thumbElemImg = document.createElement('img');
 
-      elem.className = 'banner__productimage';
-      elemImg.src = product.img;
+      //elemImg.src = product.img;
+
       thumbElem.className = 'banner__thumb';
       var thumbOnclick =  document.createAttribute('onclick');
       thumbOnclick.value = 'window.banner.switchSlide('+i+', true)';
@@ -136,10 +140,10 @@ window.requestAnimFrame = (function(){
       thumbContainer.appendChild(thumbElem);
 
       product.elem = elem;
+      product.elemImg = elemImg;
       product.thumbElem = thumbElem;
       product.index = i;
       banner.log('product', product);
-
     }
     updateDOM(true);
   };
@@ -218,7 +222,8 @@ window.requestAnimFrame = (function(){
         html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a class="btn">Se flere tilbud</a>';
         html += '</div>';
         productInfoContainer.innerHTML = html;
-        product.elem.className += ' banner__productimage--active';
+        //product.elem.className += ' banner__productimage--active';
+        product.elemImg.src = product.img;
         product.thumbElem.className =  product.thumbElem.className + ' banner__thumb--active';
       }
       else {

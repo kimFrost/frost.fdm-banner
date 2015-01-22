@@ -36,6 +36,7 @@ $checkerBoxHeight: 22px;
     z-index: 10 !important;
     border: none !important;
     outline: 0;
+    opacity: 0;
     background: none !important;
     width: $checkerBoxWidth !important;
     height: $checkerBoxHeight !important;
@@ -58,7 +59,8 @@ $checkerBoxHeight: 22px;
         border-color: $color_grey;
         //background-color: greenyellow;
         &:after {
-          content: "";
+          @include scale(1.6);
+          //content: "";
           content: "\02713";
           position: absolute;
           width: $checkerBoxWidth;
@@ -68,7 +70,7 @@ $checkerBoxHeight: 22px;
           background-repeat: no-repeat;
           line-height: $checkerBoxHeight;
           text-align: center;
-          font-size: 34px;
+          font-size: 22px;
         }
       }
     }

@@ -22,6 +22,7 @@ $_arrow_height_hypotenuse: sqrt(pow($_arrow_height_unitless, 2) + pow($_arrow_he
   width: $_arrow_height_hypotenuse;
   border-color: $color_black;
   cursor: pointer;
+  z-index: 10;
   &::before {
     @include transform-origin(50%, 50%);
     border-style: solid;
