@@ -18,7 +18,7 @@
     {
       "id": "t1",
       "name": "Teaser 1",
-      "img": "http://placehold.it/145x125",
+      "img": "http://placehold.it/145x135",
       "logoImg": "http://placehold.it/130x21",
       "splashLine1": "Spar 10%",
       "splashLine2": "199,-"
@@ -26,7 +26,7 @@
     {
       "id": "t2",
       "name": "Teaser 2",
-      "img": "http://placehold.it/145x125",
+      "img": "http://placehold.it/145x135",
       "logoImg": "http://placehold.it/130x21",
       "splashLine1": "Spar 20%",
       "splashLine2": "299,-"
@@ -34,7 +34,7 @@
     {
       "id": "t3",
       "name": "Teaser 3",
-      "img": "http://placehold.it/145x125",
+      "img": "http://placehold.it/145x135",
       "logoImg": "http://placehold.it/130x21",
       "splashLine1": "Spar 30%",
       "splashLine2": "399,-"
