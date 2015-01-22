@@ -27,6 +27,8 @@ $_banner_height: 600px;
 .banner__categories,
 .banner__category,
 .banner__productimage,
+.banner__teaser,
+.banner__teaserlink,
 .banner__productinfo,
 .banner__thumbs,
 .banner__thumb {
@@ -139,6 +141,35 @@ $_banner_height: 600px;
   }
 }
 
+.banner__teaser {
+  display: block;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 200px;
+}
+
+.banner__teaserlink {
+  display: block;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  text-align: center;
+  bottom: 180px;
+  text-decoration: none;
+  color: $color_purple;
+  font-family: $font_nillandExtraBold;
+  font-size: 30px;
+  line-height: 1;
+  &:focus,
+  &:hover {
+    color: mix($color_purple, $color_white, 70%);
+  }
+  &:active {
+    color: mix($color_purple, $color_black, 70%);
+  }
+}
+
 .banner__productinfo {
   display: block;
   position: absolute;
@@ -169,12 +200,6 @@ $_banner_height: 600px;
   cursor: pointer;
   & + & {
     //margin-left: 10px;
-  }
-  & > img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
   }
 }
 

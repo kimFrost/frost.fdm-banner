@@ -32,6 +32,7 @@ window.requestAnimFrame = (function(){
     products: [],
     autoplay: null,
     currentIndex: 0,
+    teaserIndex: 0,
     thumbIndexOffset: 0,
     numOfSlides: 0,
     timer: null,
@@ -76,6 +77,7 @@ window.requestAnimFrame = (function(){
         banner.log('data', data);
         banner.categories = enrichCategories(data.categories);
         banner.products = enrichProducts(data.products);
+        banner.teasers = data.teasers;
         banner.numOfSlides = banner.products.length;
         injectHtml();
       }
@@ -108,6 +110,8 @@ window.requestAnimFrame = (function(){
 ---------------------------------------**/
   // injectHtml
   var injectHtml = function() {
+
+    // Inject Products HTML
     var container = document.querySelector('.banner__slides');
     var thumbContainer = document.querySelector('.banner__thumbs');
     if (container === null || thumbContainer === null) {
@@ -119,7 +123,8 @@ window.requestAnimFrame = (function(){
     elem.className = 'banner__productimage';
     elem.appendChild(elemImg);
 
-    for (var i=0;i<banner.products.length; i++) {
+    var i;
+    for (i=0;i<banner.products.length; i++) {
       var product = banner.products[i];
 
       var thumbElem = document.createElement('div');
@@ -131,7 +136,7 @@ window.requestAnimFrame = (function(){
       var thumbOnclick =  document.createAttribute('onclick');
       thumbOnclick.value = 'window.banner.switchSlide('+i+', true)';
       thumbElem.setAttributeNode(thumbOnclick); // Bind thumb onclick
-      thumbElem.textContent = i; // For debugging
+      //thumbElem.textContent = i; // For debugging
       thumbElemImg.src = product.thumbImg;
 
       elem.appendChild(elemImg);
@@ -145,7 +150,22 @@ window.requestAnimFrame = (function(){
       product.index = i;
       banner.log('product', product);
     }
+
+    // Inject Teaser HTML
+    container = document.querySelector('.banner__160x600');
+    var teaserElem = document.createElement('div');
+    var teaserImgElem = document.createElement('img');
+    teaserElem.className = 'banner__teaser';
+    container.appendChild(teaserElem);
+    teaserElem.appendChild(teaserImgElem);
+
+    for (i=0;i<banner.teasers.length; i++) {
+      var teaser = banner.teasers[i];
+      teaser.teaserImgElem = teaserImgElem;
+    }
+
     updateDOM(true);
+    updateTeaser();
   };
   // Update DOM
   var updateDOM = function(updateIndex) {
@@ -249,6 +269,21 @@ window.requestAnimFrame = (function(){
     if (found) {
       updateDOM(true);
     }
+  };
+  var updateTeaser = function() {
+    var container = document.querySelector('.banner__160x600');
+    var teaser = banner.teasers[banner.teaserIndex];
+    teaser.teaserImgElem.src = teaser.img;
+    container.querySelector('.splash__line1').innerText = teaser.splashLine1;
+    container.querySelector('.splash__line2').innerText = teaser.splashLine2;
+
+    setTimeout(function() {
+      banner.teaserIndex++;
+      if (banner.teaserIndex > 2) {
+        banner.teaserIndex = 0;
+      }
+      updateTeaser();
+    }, 5000);
   };
 /**---------------------------------------
   SLides Logic
