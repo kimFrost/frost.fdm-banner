@@ -1,0 +1,24 @@
+doctype html
+html(lang="da")
+  head
+    title FDM Travel
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='./css/main.css')
+    <!--[if IE 9]>
+    link(rel='stylesheet', href='./css/ie9.css')
+    <![endif]-->
+    block head
+
+    script(src='http://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js')
+
+  body
+    block body
+    block globalVars
+      - var bannerClasses = "banner";
+
+    section.banner
+      block content
+
+    //script(src='./assets/scripts/main.js')
+    script(src='./scripts/main_no.js')

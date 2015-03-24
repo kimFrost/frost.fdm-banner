@@ -16,7 +16,7 @@ window.requestAnimFrame = (function(){
     options: {
       debug: false,
       //feedUrl: 'assets/scripts/feed.json',
-      feedUrl: 'feed.json',
+      feedUrl: 'feed_no.json',
       loop: true,
       maxThumbsShown: 5,
       autoplay: false,
@@ -240,7 +240,7 @@ window.requestAnimFrame = (function(){
         var html = '';
         html += '<div class="rte"><img src="'+product.logoImg+'">';
         html += '<div class="rte__headline">'+product.price+'</div>';
-        html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a href="http://www.skoringen.dk" target="_blank" class="btn">Se flere tilbud</a>';
+        html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a href="http://www.skoringen.no" target="_blank" class="btn">Se flere tilbud</a>';
         html += '</div>';
         productInfoContainer.innerHTML = html;
         //product.elem.className += ' banner__productimage--active';
