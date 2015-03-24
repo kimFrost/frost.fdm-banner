@@ -10,7 +10,8 @@ $_banner_height: 600px;
   position: relative;
   background-color: $color_white;
   color: $color_black;
-  background-image: url('../images/graphic/bg_glitter-small.jpg');
+  //background-image: url('../images/graphic/bg_glitter-small.jpg');
+  background-image: url('http://temp.noerd.com/skoringen/content/bg_glitter-small.jpg');
   background-size: auto;
   background-position: 50% 0;
   background-repeat: no-repeat;
@@ -58,7 +59,8 @@ $_banner_height: 600px;
 
 .banner__logo {
   display: block;
-  background-image: url('../images/graphic/skoringen_logo.png');
+  //background-image: url('../images/graphic/skoringen_logo.png');
+  background-image: url('http://temp.noerd.com/skoringen/content/skoringen_logo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -81,7 +83,8 @@ $_banner_height: 600px;
 
 .banner__footerlogo {
   display: block;
-  background-image: url('../images/graphic/footer_logo-small.png');
+  //background-image: url('../images/graphic/footer_logo-small.png');
+  background-image: url('http://temp.noerd.com/skoringen/content/footer_logo-small.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -256,7 +259,8 @@ $_banner_height: 600px;
   .banner {
     background-size: cover;
     background-position: 50% 0;
-    background-image: url('../images/graphic/bg_glitter.jpg');
+    //background-image: url('../images/graphic/bg_glitter.jpg');
+    background-image: url('http://temp.noerd.com/skoringen/content/bg_glitter.jpg');
   }
   .banner__930x600 {
     display: block;
@@ -286,9 +290,12 @@ $_banner_height: 600px;
     }
   }
   .banner__footerlogo {
-    background-image: url('../images/graphic/footer_logo.png');
-    width: image-width('../images/graphic/footer_logo.png');
-    height: image-height('../images/graphic/footer_logo.png');
+    //background-image: url('../images/graphic/footer_logo.png');
+    background-image: url('http://temp.noerd.com/skoringen/content/footer_logo.png');
+    //width: image-width('../images/graphic/footer_logo.png');
+    //height: image-height('../images/graphic/footer_logo.png');
+    width: 293px;
+    height: 211px;
     top: auto;
     bottom: 28px;
     left: 65px;

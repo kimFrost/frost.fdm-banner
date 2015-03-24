@@ -21,7 +21,7 @@
       "img": "http://temp.noerd.com/skoringen/teasers/teaser1.png",
       "logoImg": "http://temp.noerd.com/skoringen/test_logo.png",
       "splashLine1": "Spar 50%",
-      "splashLine2": "299,-"
+      "splashLine2": "399,-"
     },
     {
       "id": "t2",
@@ -29,15 +29,15 @@
       "img": "http://temp.noerd.com/skoringen/teasers/teaser2.png",
       "logoImg": "http://temp.noerd.com/skoringen/test_logo.png",
       "splashLine1": "Spar 40%",
-      "splashLine2": "359,-"
+      "splashLine2": "419,-"
     },
     {
       "id": "t3",
-      "name": "Teaser 3",
-      "img": "http://temp.noerd.com/skoringen/teasers/teaser3.png",
+      "name": "Teaser 3b",
+      "img": "http://temp.noerd.com/skoringen/teasers/teaser3b.png",
       "logoImg": "http://temp.noerd.com/skoringen/test_logo.png",
-      "splashLine1": "Spar 25%",
-      "splashLine2": "374,-"
+      "splashLine1": "Spar 50%",
+      "splashLine2": "199,-"
     }
   ],
   "products": [
