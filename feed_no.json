@@ -42,104 +42,6 @@
   ],
   "products": [
     {
-      "id": "7615102173",
-      "name": "7615102173",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615102173_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615102173_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/skofus.png",
-      "splashLine1": "Spar",
-      "splashLine2": "50%",
-      "price": "199,-",
-      "desc": "7615102173 · Barnestr. ",
-      "descAlt": "Normalpris 399,-",
-      "href": ""
-    },
-    {
-      "id": "7615102210",
-      "name": "7615102210",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615102210_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615102210_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/skofus.png",
-      "splashLine1": "Spar",
-      "splashLine2": "50%",
-      "price": "199,-",
-      "desc": "7615102210 · Barnestr. ",
-      "descAlt": "Normalpris 399,-",
-      "href": ""
-    },
-    {
-      "id": "7615153750",
-      "name": "7615153750",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615153750_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153750_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
-      "splashLine1": "Spar",
-      "splashLine2": "25%",
-      "price": "299,-",
-      "desc": "7615153750 · Barnestr. ",
-      "descAlt": "Normalpris 399,-",
-      "href": ""
-    },
-    {
-      "id": "7615153890",
-      "name": "7615153890",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615153890_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153890_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
-      "splashLine1": "Spar",
-      "splashLine2": "25%",
-      "price": "299,-",
-      "desc": "7615153890 · Barnestr. ",
-      "descAlt": "Normalpris 399,-",
-      "href": ""
-    },
-    {
-      "id": "7615153590",
-      "name": "7615153590",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615153590_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153590_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
-      "splashLine1": "Spar",
-      "splashLine2": "25%",
-      "price": "374,-",
-      "desc": "7615153590 · Barnestr. ",
-      "descAlt": "Normalpris 499,-",
-      "href": ""
-    },
-    {
-      "id": "7615153650",
-      "name": "7615153650",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7615153650_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153650_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
-      "splashLine1": "Spar",
-      "splashLine2": "25%",
-      "price": "374,-",
-      "desc": "7615153650 · Barnestr. ",
-      "descAlt": "Normalpris 499,-",
-      "href": ""
-    },
-    {
-      "id": "3215125121",
-      "name": "3215125121",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/3215125121_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/3215125121_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/ecco.png",
-      "splashLine1": "Spar",
-      "splashLine2": "25%",
-      "price": "449,-",
-      "desc": "3215125121 · Barnestr. ",
-      "descAlt": "Normalpris 599,-",
-      "href": ""
-    },
-    {
       "id": "4215150110",
       "name": "4215150110",
       "categories": ["women"],
@@ -151,7 +53,7 @@
       "price": "399,-",
       "desc": "4215150110 · Dame",
       "descAlt": "Normalpris 699,-",
-      "href": ""
+      "href": "http://www.skoringen.no/tamaris-1-1-28388-32.aspx"
     },
     {
       "id": "4255150110",
@@ -165,7 +67,7 @@
       "price": "399,-",
       "desc": "4255150110 · Dame",
       "descAlt": "Normalpris 799,-",
-      "href": ""
+      "href": "http://www.skoringen.no/merrell-sandspur-rose.aspx"
     },
     {
       "id": "4255150180",
@@ -179,7 +81,7 @@
       "price": "399,-",
       "desc": "4255150180 · Dame",
       "descAlt": "Normalpris 799,-",
-      "href": ""
+      "href": "http://www.skoringen.no/merrell-sandspur-rose_1.aspx"
     },
     {
       "id": "7645101021",
@@ -193,63 +95,7 @@
       "price": "299,-",
       "desc": "7645101021 · Dame",
       "descAlt": "Normalpris 599,-",
-      "href": ""
-    },
-    {
-      "id": "7645101022",
-      "name": "7645101022",
-      "categories": ["children"],
-      "img": "http://s-d-v.dk/envision/no/products/7645101022_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7645101022_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/cult.png",
-      "splashLine1": "Spar",
-      "splashLine2": "50%",
-      "price": "299,-",
-      "desc": "7645101022 · 36-46",
-      "descAlt": "Normalpris 599,-",
-      "href": ""
-    },
-    {
-      "id": "1625101291",
-      "name": "1625101291",
-      "categories": ["men"],
-      "img": "http://s-d-v.dk/envision/no/products/1625101291_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1625101291_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
-      "splashLine1": "Spar",
-      "splashLine2": "50%",
-      "price": "299,-",
-      "desc": "1625101291 · Herre",
-      "descAlt": "Normalpris 599,-",
-      "href": ""
-    },
-    {
-      "id": "1635100521",
-      "name": "1635100521",
-      "categories": ["men"],
-      "img": "http://s-d-v.dk/envision/no/products/1635100521_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1635100521_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
-      "splashLine1": "Spar",
-      "splashLine2": "40%",
-      "price": "419,-",
-      "desc": "1635100521 · Herre",
-      "descAlt": "Normalpris 699,-",
-      "href": ""
-    },
-    {
-      "id": "1635101720",
-      "name": "1635101720",
-      "categories": ["men"],
-      "img": "http://s-d-v.dk/envision/no/products/1635101720_1_V.png",
-      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1635101720_1_V.jpg",
-      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
-      "splashLine1": "Spar",
-      "splashLine2": "40%",
-      "price": "419,-",
-      "desc": "1635101720 · Herre",
-      "descAlt": "Normalpris 699,-",
-      "href": ""
+      "href": "http://www.skoringen.no/cult-7645101021.aspx"
     },
     {
       "id": "2455100520",
@@ -263,7 +109,7 @@
       "price": "299,-",
       "desc": "2455100520 · Dame",
       "descAlt": "Normalpris 499,-",
-      "href": ""
+      "href": "http://www.skoringen.no/bco-2455100520.aspx"
     },
     {
       "id": "2455110110",
@@ -277,7 +123,7 @@
       "price": "399,-",
       "desc": "2455110110 · Dame",
       "descAlt": "Normalpris 599,-",
-      "href": ""
+      "href": "http://www.skoringen.no/jana-8-24661-24.aspx"
     },
     {
       "id": "7425140290",
@@ -291,7 +137,7 @@
       "price": "299,-",
       "desc": "7425140290 · Dame",
       "descAlt": "Normalpris 549,-",
-      "href": ""
+      "href": "http://www.skoringen.no/vagabond-3744-080_2.aspx"
     },
     {
       "id": "2225150110",
@@ -305,7 +151,7 @@
       "price": "499,-",
       "desc": "2225150110 · Dame",
       "descAlt": "Normalpris 899,-",
-      "href": ""
+      "href": "http://www.skoringen.no/gabor-85-413.aspx"
     },
     {
       "id": "2255123190",
@@ -319,7 +165,7 @@
       "price": "599,-",
       "desc": "2255123190 · Dame",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ecco-802143-biom-lite.aspx"
     },
     {
       "id": "2415150110",
@@ -333,7 +179,7 @@
       "price": "599,-",
       "desc": "2415150110 · Dame",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ara-12-30844.aspx"
     },
     {
       "id": "4215101510",
@@ -347,7 +193,7 @@
       "price": "299,-",
       "desc": "4215101510 · Dame",
       "descAlt": "Normalpris 499,-",
-      "href": ""
+      "href": "http://www.skoringen.no/bco-4215101510.aspx"
     },
     {
       "id": "4215151920",
@@ -361,7 +207,7 @@
       "price": "599,-",
       "desc": "4215151920 · Dame",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ara-12-37658.aspx"
     },
     {
       "id": "4225101902",
@@ -375,7 +221,7 @@
       "price": "299,-",
       "desc": "4225101902 · Dame",
       "descAlt": "Normalpris 499,-",
-      "href": ""
+      "href": "http://www.skoringen.no/bco-4225101902.aspx"
     },
     {
       "id": "2225130182",
@@ -389,7 +235,7 @@
       "price": "479,-",
       "desc": "2225130182 · Dame",
       "descAlt": "Normalpris 649,-",
-      "href": ""
+      "href": "http://www.skoringen.no/rieker-43265-42.aspx"
     },
     {
       "id": "2235150380",
@@ -403,7 +249,7 @@
       "price": "249,-",
       "desc": "2235150380 · Dame",
       "descAlt": "Normalpris 399,-",
-      "href": ""
+      "href": "http://www.skoringen.no/marco-tozzi-2-2-22445-24.aspx"
     },
     {
       "id": "2255150110",
@@ -417,7 +263,7 @@
       "price": "449,-",
       "desc": "2255150110 · Dame",
       "descAlt": "Normalpris 799,-",
-      "href": ""
+      "href": "http://www.skoringen.no/gabor-84-234.aspx"
     },
     {
       "id": "2255151220",
@@ -431,7 +277,7 @@
       "price": "549,-",
       "desc": "2255151220 · Dame",
       "descAlt": "Normalpris 899,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ara-12-35242-06.aspx"
     },
     {
       "id": "4225130122",
@@ -445,7 +291,7 @@
       "price": "419,-",
       "desc": "4225130122 · Dame",
       "descAlt": "Normalpris 599,-",
-      "href": ""
+      "href": "http://www.skoringen.no/rieker-608b7-64.aspx"
     },
     {
       "id": "4225150110",
@@ -459,7 +305,7 @@
       "price": "399,-",
       "desc": "4225150110 · Dame",
       "descAlt": "Normalpris 599,-",
-      "href": ""
+      "href": "http://www.skoringen.no/caprice-9-28652-24.aspx"
     },
     {
       "id": "4425150402",
@@ -473,7 +319,7 @@
       "price": "499,-",
       "desc": "4425150402 · Dame",
       "descAlt": "Normalpris 799,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ara-12-37201.aspx"
     },
     {
       "id": "4435150110",
@@ -487,7 +333,7 @@
       "price": "299,-",
       "desc": "4435150110 · Dame",
       "descAlt": "Normalpris 399,-",
-      "href": ""
+      "href": "http://www.skoringen.no/marco-tozzi-2-2-27507-24.aspx"
     },
     {
       "id": "7625150921",
@@ -501,7 +347,167 @@
       "price": "714,-",
       "desc": "7625150921 · Dame",
       "descAlt": "Normalpris 1099,-",
-      "href": ""
+      "href": "http://www.skoringen.no/viking-3-457513-45750.aspx"
+    },
+
+
+
+    {
+      "id": "7615102173",
+      "name": "7615102173",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615102173_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615102173_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/skofus.png",
+      "splashLine1": "Spar",
+      "splashLine2": "50%",
+      "price": "199,-",
+      "desc": "7615102173 · Barnestr. ",
+      "descAlt": "Normalpris 399,-",
+      "href": "http://www.skoringen.no/skofus-7615102173.aspx"
+    },
+    {
+      "id": "7615102210",
+      "name": "7615102210",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615102210_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615102210_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/skofus.png",
+      "splashLine1": "Spar",
+      "splashLine2": "50%",
+      "price": "199,-",
+      "desc": "7615102210 · Barnestr. ",
+      "descAlt": "Normalpris 399,-",
+      "href": "http://www.skoringen.no/skofus-7615102210.aspx"
+    },
+    {
+      "id": "7615153750",
+      "name": "7615153750",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615153750_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153750_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
+      "splashLine1": "Spar",
+      "splashLine2": "25%",
+      "price": "299,-",
+      "desc": "7615153750 · Barnestr. ",
+      "descAlt": "Normalpris 399,-",
+      "href": "http://www.skoringen.no/puma-358773.aspx"
+    },
+    {
+      "id": "7615153890",
+      "name": "7615153890",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615153890_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153890_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
+      "splashLine1": "Spar",
+      "splashLine2": "25%",
+      "price": "299,-",
+      "desc": "7615153890 · Barnestr. ",
+      "descAlt": "Normalpris 399,-",
+      "href": "http://www.skoringen.no/puma-354597.aspx"
+    },
+    {
+      "id": "7615153590",
+      "name": "7615153590",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615153590_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153590_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
+      "splashLine1": "Spar",
+      "splashLine2": "25%",
+      "price": "374,-",
+      "desc": "7615153590 · Barnestr. ",
+      "descAlt": "Normalpris 499,-",
+      "href": "http://www.skoringen.no/puma-354596.aspx"
+    },
+    {
+      "id": "7615153650",
+      "name": "7615153650",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7615153650_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7615153650_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/puma.png",
+      "splashLine1": "Spar",
+      "splashLine2": "25%",
+      "price": "374,-",
+      "desc": "7615153650 · Barnestr. ",
+      "descAlt": "Normalpris 499,-",
+      "href": "http://www.skoringen.no/puma-358770.aspx"
+    },
+    {
+      "id": "3215125121",
+      "name": "3215125121",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/3215125121_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/3215125121_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/ecco.png",
+      "splashLine1": "Spar",
+      "splashLine2": "25%",
+      "price": "449,-",
+      "desc": "3215125121 · Barnestr. ",
+      "descAlt": "Normalpris 599,-",
+      "href": "http://www.skoringen.no/ecco-750231-mimic_2.aspx"
+    },
+    {
+      "id": "7645101022",
+      "name": "7645101022",
+      "categories": ["children"],
+      "img": "http://s-d-v.dk/envision/no/products/7645101022_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/7645101022_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/cult.png",
+      "splashLine1": "Spar",
+      "splashLine2": "50%",
+      "price": "299,-",
+      "desc": "7645101022 · 36-46",
+      "descAlt": "Normalpris 599,-",
+      "href": "http://www.skoringen.no/cult-7645101022.aspx"
+    },
+
+
+
+    {
+      "id": "1625101291",
+      "name": "1625101291",
+      "categories": ["men"],
+      "img": "http://s-d-v.dk/envision/no/products/1625101291_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1625101291_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
+      "splashLine1": "Spar",
+      "splashLine2": "50%",
+      "price": "299,-",
+      "desc": "1625101291 · Herre",
+      "descAlt": "Normalpris 599,-",
+      "href": "http://www.skoringen.no/odiin-1625101291.aspx"
+    },
+    {
+      "id": "1635100521",
+      "name": "1635100521",
+      "categories": ["men"],
+      "img": "http://s-d-v.dk/envision/no/products/1635100521_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1635100521_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
+      "splashLine1": "Spar",
+      "splashLine2": "40%",
+      "price": "419,-",
+      "desc": "1635100521 · Herre",
+      "descAlt": "Normalpris 699,-",
+      "href": "http://www.skoringen.no/odiin-1635100521.aspx"
+    },
+    {
+      "id": "1635101720",
+      "name": "1635101720",
+      "categories": ["men"],
+      "img": "http://s-d-v.dk/envision/no/products/1635101720_1_V.png",
+      "thumbImg": "http://s-d-v.dk/envision/no/thumbs/1635101720_1_V.jpg",
+      "logoImg": "http://s-d-v.dk/envision/logos/odiin.png",
+      "splashLine1": "Spar",
+      "splashLine2": "40%",
+      "price": "419,-",
+      "desc": "1635101720 · Herre",
+      "descAlt": "Normalpris 699,-",
+      "href": "http://www.skoringen.no/odiin-1635101720.aspx"
     },
     {
       "id": "7635150352",
@@ -515,7 +521,7 @@
       "price": "714,-",
       "desc": "7635150352 · Herre",
       "descAlt": "Normalpris 1099,-",
-      "href": ""
+      "href": "http://www.skoringen.no/viking-3-457563-45755.aspx"
     },
     {
       "id": "7645150510",
@@ -529,7 +535,7 @@
       "price": "374,-",
       "desc": "7645150510 · Herre",
       "descAlt": "Normalpris 499,-",
-      "href": ""
+      "href": "http://www.skoringen.no/puma-343897.aspx"
     },
     {
       "id": "1615100752",
@@ -543,7 +549,7 @@
       "price": "454,-",
       "desc": "1615100752 · Herre",
       "descAlt": "Normalpris 699,-",
-      "href": ""
+      "href": "http://www.skoringen.no/odiin-1615100752.aspx"
     },
     {
       "id": "1625130150",
@@ -557,7 +563,7 @@
       "price": "561,-",
       "desc": "1625130150 · Herre",
       "descAlt": "Normalpris 749,-",
-      "href": ""
+      "href": "http://www.skoringen.no/rieker-19073-16.aspx"
     },
     {
       "id": "1625150620",
@@ -571,7 +577,7 @@
       "price": "749,-",
       "desc": "1625150620 · Herre",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/bjoern-borg-1512139524.aspx"
     },
     {
       "id": "1625150790",
@@ -585,7 +591,7 @@
       "price": "749,-",
       "desc": "1625150790 · Herre",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/bjoern-borg-1512305501.aspx"
     },
     {
       "id": "1635150530",
@@ -599,7 +605,7 @@
       "price": "649,-",
       "desc": "1635150530 · Herre",
       "descAlt": "Normalpris 999,-",
-      "href": ""
+      "href": "http://www.skoringen.no/timberland-5230r.aspx"
     },
     {
       "id": "1635125032",
@@ -613,7 +619,7 @@
       "price": "764,-",
       "desc": "1635125032 · Herre",
       "descAlt": "Normalpris 1099,-",
-      "href": ""
+      "href": "http://www.skoringen.no/ecco-535504-collin.aspx"
     }
   ]
 }
