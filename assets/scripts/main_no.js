@@ -238,9 +238,19 @@ window.requestAnimFrame = (function(){
         container.querySelector('.splash__line1').innerText = product.splashLine1;
         container.querySelector('.splash__line2').innerText = product.splashLine2;
         var html = '';
+
         html += '<div class="rte"><img src="'+product.logoImg+'">';
         html += '<div class="rte__headline">'+product.price+'</div>';
-        html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a href="http://www.skoringen.no" target="_blank" class="btn">Se flere tilbud</a>';
+
+        // Clicktag
+        if (window.dhtml !== undefined) {
+          var clicktagLink = window.dhtml.getVar(product.name, product.href);
+          html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+clicktagLink+'" target="_blank">Se detaljer her</a><a href="http://www.skoringen.dk" target="_blank" class="btn">Se flere tilbud</a>';
+        }
+        else {
+          html += '<p class="rte__tiny">'+product.desc+'<br>'+product.descAlt+'</p><a class="btn" href="'+product.href+'" target="_blank">Se detaljer her</a><a href="http://www.skoringen.dk" target="_blank" class="btn">Se flere tilbud</a>';
+        }
+
         html += '</div>';
         productInfoContainer.innerHTML = html;
         //product.elem.className += ' banner__productimage--active';
